@@ -15,7 +15,7 @@ sections:
         Illuminate the future with precision and innovation.<br>
         **Premium lighting solutions** for modern homes and smart businesses.
     design:
-      css_class: "hero-tech-dark hero-left-bottom"
+      css_class: "dark"
       text_color_light: true
       background:
         color: "#0b0f1a"
