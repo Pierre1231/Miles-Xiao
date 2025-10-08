@@ -56,6 +56,7 @@ sections:
       text: Product Series
       items:
         - name: Optimized SEO
+          image: build-website.png
           icon: magnifying-glass
           description: Automatic sitemaps, RSS feeds, and rich metadata take the pain out of SEO and syndication.
         - name: Fast
