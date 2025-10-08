@@ -58,7 +58,7 @@ sections:
       count: 1
       items:
         - title: "lamp"
-          image: "BD1010 1.png"
+          image: "assets/media/BD1010 1.png"
           description: "lamp111"
     design:
       view: "card"
