@@ -21,13 +21,13 @@
 
   <link rel="canonical" href="{{ .Permalink }}">
 
-  <title>
+<title>
   {{- if.IsHome -}}
     {{-.Site.Title -}}
   {{- else -}}
     {{- with.Title }}{{. }} | {{ end -}}{{-.Site.Title -}}
   {{- end -}}
-  </title>
+</title>
 
   {{/* Load Reveal CSS */}}
   <link rel="stylesheet" href="{{ $cdn_url_reveal }}/dist/reveal.min.css">
