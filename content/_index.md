@@ -23,7 +23,7 @@ sections:
           style: solid
 
     design:
-      css_class: "hero-tech-dark"
+      css_class: "hero-tech-dark hero-left-bottom"
       text_align: center
       text_color_light: true
       font:
