@@ -53,10 +53,10 @@ sections:
   - block: collection
     content:
       title: "CATEGORY"
-      subtitle: "Latest updates of our product series"
+      text: "Latest updates of our product series"
       count: 1
       items:
-        - title: "lamp"
+        - name: "lamp"
           image: "assets/media/BD1010 1.png"
           description: "lamp111"
     design:
