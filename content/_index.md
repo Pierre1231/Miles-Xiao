@@ -55,10 +55,11 @@ sections:
       title: "Recent Posts"
       subtitle: "Latest updates from our blog"
       text: "Stay up to date with our latest news and insights"
-      filters:
-        - "publication"
-        - "featured"
-      count: 3
+      
+      items:
+        - title: "lamp"
+          image: "BD1010 1.png"
+          description: "lamp111"
     design:
       view: "card"
       columns: "3"
