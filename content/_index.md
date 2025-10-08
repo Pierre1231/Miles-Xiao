@@ -24,7 +24,7 @@ sections:
           filters:
             brightness: 0.35
             contrast: 1.2
-          size: cover
+          size: contain
           position: center
           parallax: false
 
