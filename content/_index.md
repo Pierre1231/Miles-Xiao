@@ -39,8 +39,7 @@ sections:
         - statistic: "10k+"
           description: |
             innovative designs 
-            launched
-        - statistic: "100+"
+        - statistic: "3k+"
           description: |
             countries reached
     design:
@@ -50,12 +49,11 @@ sections:
       spacing:
         padding: ["1rem", 0, "1rem", 0]
         
-
   - block: features
     id: features
     content:
-      title: Features
-      text: Build your site with blocks 🧱
+      title: CATEGORY
+      text: Product Series
       items:
         - name: Optimized SEO
           icon: magnifying-glass
