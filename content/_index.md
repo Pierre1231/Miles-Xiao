@@ -55,7 +55,7 @@ sections:
       count: 4
       filters:
         folders:
-          - pic
+          - collection
     design:
       view: Masonry
       columns: '2'
