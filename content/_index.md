@@ -11,14 +11,14 @@ sections:
   - block: hero
     content:
       title: SMARTER Lighting
-      text: Welcome to [Your Company Name], your dedicated partner in premium lighting solutions. Whether you need sophisticated lighting for your home or powerful, reliable systems for a business, we have the expertise and products to brighten your vision.
+      text: Welcome to SMARTER Lighting, your dedicated partner in premium lighting solutions. Whether you need sophisticated lighting for your home or powerful, reliable systems for a business, we have the expertise and products to brighten your vision.
 
     design:
     #   spacing:
     #     padding: [0, 0, 0, 0]
     #     margin: [0, 0, 0, 0]
       # For full-screen, add `min-h-screen` below
-      css_class: "dark"
+      css_class: "light"
       background:
         color: "navy"
         image:
