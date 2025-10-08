@@ -52,16 +52,16 @@ sections:
 
   - block: collection
     content:
-      title: "CATEGORY"
-      text: "Latest updates of our product series"
+      title: CATEGORY
+      text: Latest updates of our product series
       count: 1
       items:
-        - name: "lamp"
-          image: "assets/media/BD1010 1.png"
-          description: "lamp111"
+        - name: lamp
+          image: BD1010 1.png
+          description: lamp111
     design:
       view: Masonry
-      columns: "3"
+      columns: 3
         
   - block: features
     id: product
