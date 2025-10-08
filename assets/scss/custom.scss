@@ -1,3 +1,8 @@
+/* ================================
+   CUSTOM HERO STYLE — TECHNO DARK
+   ================================ */
+
+/* 🌌 基础样式 */
 .hero-tech-dark {
   position: relative;
   overflow: hidden;
@@ -5,6 +10,7 @@
   min-height: 100vh;
   box-sizing: border-box;
 
+  /* 背景光效层 */
   &::before {
     content: "";
     position: absolute;
@@ -14,12 +20,7 @@
     z-index: 0;
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-  }
-
+  /* 文字基础样式 */
   .hero-title {
     color: #00b4ff;
     text-shadow: 0 0 20px rgba(0, 180, 255, 0.4);
@@ -28,21 +29,30 @@
     font-weight: 700;
     letter-spacing: 0.03em;
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
   }
 
   .hero-text {
     color: #cfd8dc;
+    font-family: "Inter", sans-serif;
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 2rem;
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
   }
 
+  /* 按钮样式 */
   .btn {
     border-radius: 9999px;
     padding: 0.75rem 2rem;
     font-weight: 500;
     letter-spacing: 0.05em;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
   }
 
   .btn-primary {
@@ -56,33 +66,60 @@
       box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
     }
   }
+}
 
-  /* ✅ 左下角布局控制 */
-  &.hero-left-bottom {
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 4rem 6rem;
+/* ================================
+   🎯 Hero 左下角布局（核心部分）
+   ================================ */
+.hero-tech-dark.hero-left-bottom {
+  position: relative;
+  display: flex !important;               /* 强制启用 Flexbox */
+  align-items: flex-end !important;       /* 垂直对齐到底部 */
+  justify-content: flex-start !important; /* 水平靠左 */
+  min-height: 100vh;
+  padding: 4rem 6rem;
+  text-align: left !important;
+  box-sizing: border-box;
+}
+
+/* 覆盖 Wowchemy 默认居中容器 */
+.hero-tech-dark.hero-left-bottom .hero-container,
+.hero-tech-dark.hero-left-bottom .hero-content {
+  margin: 0 !important;
+  text-align: left !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+}
+
+/* 内容块宽度控制 */
+.hero-tech-dark.hero-left-bottom .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+/* ================================
+   📱 响应式优化：移动端自动居中
+   ================================ */
+@media (max-width: 768px) {
+  .hero-tech-dark.hero-left-bottom {
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 3rem 2rem;
   }
 
-  /* 📱 移动端优化：自动改为中下方并居中对齐 */
-  @media (max-width: 768px) {
-    &.hero-left-bottom {
-      align-items: flex-end;
-      justify-content: center;
-      padding: 3rem 2rem;
-      text-align: center;
+  .hero-tech-dark.hero-left-bottom .hero-content {
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    max-width: 90%;
+  }
 
-      .hero-content {
-        max-width: 90%;
-      }
+  .hero-tech-dark .hero-title {
+    font-size: 2rem;
+  }
 
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      .hero-text {
-        font-size: 1rem;
-      }
-    }
+  .hero-tech-dark .hero-text {
+    font-size: 1rem;
   }
 }

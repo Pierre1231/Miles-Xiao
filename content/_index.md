@@ -14,23 +14,11 @@ sections:
       text: >
         Illuminate the future with precision and innovation.<br>
         **Premium lighting solutions** for modern homes and smart businesses.
-      # 可选按钮示例
-      buttons:
-        - label: Explore Solutions
-          url: /products/
-          icon: bolt
-          color: primary
-          style: solid
-
     design:
       css_class: "hero-tech-dark hero-left-bottom"
-      text_align: center
       text_color_light: true
-      font:
-        heading: "Roboto Mono"
-        body: "Inter"
       background:
-        color: "#0b0f1a" # 深蓝灰底
+        color: "#0b0f1a"
         image:
           filename: "BD1010 1.png"
           filters:
@@ -39,8 +27,7 @@ sections:
           size: cover
           position: center
           parallax: false
-      spacing:
-        padding: ["8rem", "0", "8rem", "0"]
+
 
   - block: stats
     content:
