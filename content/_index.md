@@ -61,7 +61,7 @@ sections:
           image: "assets/media/BD1010 1.png"
           description: "lamp111"
     design:
-      view: "card"
+      view: "grid"
       columns: "3"
         
   - block: features
