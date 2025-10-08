@@ -49,6 +49,20 @@ sections:
       spacing:
         padding: ["1rem", 0, "1rem", 0]
         
+
+  - block: collection
+    content:
+      title: "Recent Posts"
+      subtitle: "Latest updates from our blog"
+      text: "Stay up to date with our latest news and insights"
+      filters:
+        - "publication"
+        - "featured"
+      count: 3
+    design:
+      view: "card"
+      columns: "3"
+        
   - block: features
     id: product
     content:
