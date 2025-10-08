@@ -34,22 +34,23 @@ sections:
       items:
         - statistic: "1M+"
           description: |
-            Websites built  
-            with Hugo Blox
+            lights sold 
+            per year
         - statistic: "10k+"
           description: |
-            GitHub stars  
-            since 2016
-        - statistic: "3k+"
+            innovative designs 
+            launched
+        - statistic: "100+"
           description: |
-            Discord community  
-            for support
+            countries reached
     design:
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
       # Reduce spacing
       spacing:
         padding: ["1rem", 0, "1rem", 0]
+        
+
   - block: features
     id: features
     content:
