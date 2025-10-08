@@ -52,15 +52,10 @@ sections:
 
   - block: collection
     content:
-      title: CATEGORY
       count: 4
       filters:
         folders:
           - pic
-      items:
-        - name: lamp
-          image: BD1010 1.png
-          description: lamp111
     design:
       view: Masonry
       columns: '2'
