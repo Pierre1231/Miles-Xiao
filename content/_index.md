@@ -18,7 +18,7 @@ sections:
     #     padding: [0, 0, 0, 0]
     #     margin: [0, 0, 0, 0]
       # For full-screen, add `min-h-screen` below
-      css_class: "light"
+      css_class: "dark text-left self-end p-8"
       background:
         color: "navy"
         image:
