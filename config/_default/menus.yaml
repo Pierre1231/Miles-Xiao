@@ -7,7 +7,7 @@ main:
     url: /#top
     weight: 10
   - name: Product
-    url: /#features
+    url: /#Product
     weight: 20
   - name: Solutions
     url: /#solutions
