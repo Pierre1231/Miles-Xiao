@@ -60,7 +60,7 @@ sections:
           image: "assets/media/BD1010 1.png"
           description: "lamp111"
     design:
-      view: "grid"
+      view: Masonry
       columns: "3"
         
   - block: features
