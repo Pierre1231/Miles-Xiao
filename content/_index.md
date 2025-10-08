@@ -1,5 +1,5 @@
 ---
-title: 'Home'
+title: 
 date: 2023-10-24
 type: landing
 
@@ -53,8 +53,7 @@ sections:
   - block: collection
     content:
       title: CATEGORY
-      text: Latest updates of our product series
-      count: 1
+      count: 5
       items:
         - name: lamp
           image: BD1010 1.png
