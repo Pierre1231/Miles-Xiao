@@ -10,27 +10,38 @@ design:
 sections:
   - block: hero
     content:
-      title: SMARTER Lighting
-      text: Welcome to SMARTER Lighting, your dedicated partner in premium lighting solutions. Whether you need sophisticated lighting for your home or powerful, reliable systems for a business, we have the expertise and products to brighten your vision.
+      title: "SMARTER Lighting"
+      text: >
+        Illuminate the future with precision and innovation.<br>
+        **Premium lighting solutions** for modern homes and smart businesses.
+      # 可选按钮示例
+      buttons:
+        - label: Explore Solutions
+          url: /products/
+          icon: bolt
+          color: primary
+          style: solid
 
     design:
-    #   spacing:
-    #     padding: [0, 0, 0, 0]
-    #     margin: [0, 0, 0, 0]
-      # For full-screen, add `min-h-screen` below
-      css_class: "dark text-left"
+      css_class: "hero-tech-dark"
+      text_align: center
+      text_color_light: true
+      font:
+        heading: "Roboto Mono"
+        body: "Inter"
       background:
-        color: "navy"
+        color: "#0b0f1a" # 深蓝灰底
         image:
-          # Add your image background to `assets/media/`.
-          filename: BD1010 1.png
+          filename: "BD1010 1.png"
           filters:
-            brightness: 0.5
+            brightness: 0.35
+            contrast: 1.2
           size: cover
           position: center
           parallax: false
-      text_color_light: true     # 使用浅色字体（适合深色背景）
-      text_align: left           # 居中，可选 left / right / center
+      spacing:
+        padding: ["8rem", "0", "8rem", "0"]
+
   - block: stats
     content:
       items:
