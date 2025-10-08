@@ -50,7 +50,7 @@ sections:
         padding: ["1rem", 0, "1rem", 0]
         
   - block: features
-    id: Product
+    id: features
     content:
       title: CATEGORY
       text: Product Series
