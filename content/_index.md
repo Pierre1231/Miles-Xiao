@@ -52,9 +52,8 @@ sections:
 
   - block: collection
     content:
-      title: "Recent Posts"
-      subtitle: "Latest updates from our blog"
-      text: "Stay up to date with our latest news and insights"
+      title: "CATEGORY"
+      subtitle: "Latest updates of our product series"
       count: 1
       items:
         - title: "lamp"
