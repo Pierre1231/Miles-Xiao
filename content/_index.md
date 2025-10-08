@@ -10,20 +10,9 @@ design:
 sections:
   - block: hero
     content:
-      title: Build Your Landing Pages with Hugo Blox
-      text: 🧱 EASY. FREE (OPEN SOURCE). NO-CODE  🧱
-      primary_action:
-        text: Get Started
-        url: https://hugoblox.com/templates/
-        icon: rocket-launch
-      secondary_action:
-        text: Read the docs
-        url: https://docs.hugoblox.com
-      announcement:
-        text: "Announcing the release of version 1."
-        link:
-          text: "Read more"
-          url: "/blog/"
+      title: SMARTER Lighting
+      text: Welcome to [Your Company Name], your dedicated partner in premium lighting solutions. Whether you need sophisticated lighting for your home or powerful, reliable systems for a business, we have the expertise and products to brighten your vision.
+
     design:
     #   spacing:
     #     padding: [0, 0, 0, 0]
@@ -34,7 +23,7 @@ sections:
         color: "navy"
         image:
           # Add your image background to `assets/media/`.
-          filename: bg-triangles.svg
+          filename: BD1010 1.png
           filters:
             brightness: 0.5
           size: cover
