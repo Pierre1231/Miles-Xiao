@@ -29,6 +29,8 @@ sections:
           size: cover
           position: center
           parallax: false
+      text_color_light: true     # 使用浅色字体（适合深色背景）
+      text_align: left           # 居中，可选 left / right / center
   - block: stats
     content:
       items:
