@@ -6,7 +6,7 @@ main:
   - name: Home
     url: /#top
     weight: 10
-  - name: Features
+  - name: Product
     url: /#features
     weight: 20
   - name: Solutions
