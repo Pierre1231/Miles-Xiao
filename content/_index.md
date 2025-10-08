@@ -55,7 +55,7 @@ sections:
       title: "Recent Posts"
       subtitle: "Latest updates from our blog"
       text: "Stay up to date with our latest news and insights"
-      
+      count: 1
       items:
         - title: "lamp"
           image: "BD1010 1.png"
