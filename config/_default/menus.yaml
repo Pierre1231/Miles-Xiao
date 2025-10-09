@@ -7,8 +7,14 @@ main:
     url: /#top
     weight: 10
   - name: Product
-    url: /#product
     weight: 20
+    hasChildren: true
+  - parent: Product
+    name: Blog1
+    url: blog1/
+  - parent: Product
+    name: Blog2
+    url: blog2/
   - name: Solutions
     url: /#solutions
     weight: 30
