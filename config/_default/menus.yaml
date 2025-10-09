@@ -10,8 +10,8 @@ main:
     weight: 30
     hasChildren: true
   - parent: Product
-    name: Forward Surface Mounted Downlight
-    url: Forward Surface Mounted Downlight/
+    name: forward-surface-mounted-downlight
+    url: forward-surface-mounted-downlight/
   - parent: Product
     name: Blog2
     url: blog2/
