@@ -10,8 +10,8 @@ main:
     weight: 30
     hasChildren: true
   - parent: Product
-    name: Blog1
-    url: blog1/
+    name: Forward Surface Mounted Downlight
+    url: Forward Surface Mounted Downlight/
   - parent: Product
     name: Blog2
     url: blog2/

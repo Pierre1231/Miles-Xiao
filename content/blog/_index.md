@@ -1,4 +1,4 @@
 ---
 title: Blog
-view: Masonry
+view: card
 ---
