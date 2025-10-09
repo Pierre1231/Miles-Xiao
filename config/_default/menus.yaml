@@ -5,9 +5,9 @@
 main:
   - name: Home
     url: /#top
-    weight: 10
-  - name: Product
     weight: 20
+  - name: Product
+    weight: 30
     hasChildren: true
   - parent: Product
     name: Blog1
@@ -15,9 +15,6 @@ main:
   - parent: Product
     name: Blog2
     url: blog2/
-  - name: Solutions
-    url: /#solutions
-    weight: 30
   - name: Resources
     weight: 40
     hasChildren: true
