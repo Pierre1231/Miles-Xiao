@@ -15,16 +15,16 @@ sections:
         Illuminate the future with precision and innovation.<br>
         **Premium lighting solutions** for modern homes and smart businesses.
     design:
-      css_class: "dark"
+      css_class: "hero-tech-dark hero-left-bottom dark"
       text_color_light: true
       background:
         color: "#0b0f1a"
         image:
           filename: "BD1010 1.png"
           filters:
-            brightness: 0.35
-            contrast: 1.2
-          size: contain
+            brightness: 0.55
+            contrast: 1.05
+          size: cover
           position: center
           parallax: false
 
