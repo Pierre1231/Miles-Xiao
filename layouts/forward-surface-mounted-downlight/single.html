@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 my-8">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- 左侧目录（基于 Markdown 标题自动生成） -->
+    <aside class="lg:col-span-3">
+      <div class="sticky top-24 p-4 rounded border border-slate-200 bg-white/70 backdrop-blur">
+        <h2 class="font-semibold mb-3">本页目录</h2>
+        <nav class="toc text-sm leading-7">
+          {{ .TableOfContents }}
+        </nav>
+      </div>
+    </aside>
+
+    <!-- 右侧内容区 -->
+    <article class="lg:col-span-9 max-w-none">
+      {{ .Content }}
+    </article>
+  </div>
+</div>
+{{ end }}
+
+
