@@ -65,6 +65,6 @@ sections:
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
       spacing:
-        padding: ["0.5rem", 0, "1rem", 0]
+        padding: ["0rem", 0, "1rem", 0]
 
 ---
