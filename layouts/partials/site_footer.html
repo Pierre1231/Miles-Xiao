@@ -1,0 +1,11 @@
+<footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700">
+  <p class="text-center">
+    <a href="/privacy/">Privacy</a>
+    &#183;
+    <a href="/terms/">Terms of Service</a>
+  </p>
+  {{- with site.Params.footer.copyright.notice -}}
+  <p class="powered-by text-center">{{ replace . "{year}" (now | time.Format "2006") }}</p>
+  {{- end -}}
+</footer>
+
