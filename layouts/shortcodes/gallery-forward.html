@@ -42,7 +42,7 @@
   <h2 class="gallery-title">Fix</h2>
   <div class="gallery-grid">
     {{ $path := "forward-surface-mounted-downlight/fix" }}
-    {{ range (readDir (printf "content/%s" $path)) }}
+    {{ range (readDir (printf "static/%s" $path)) }}
       {{ if or (strings.HasSuffix .Name ".jpg") (strings.HasSuffix .Name ".png") }}
       <div class="gallery-item">
         <img src="{{ printf "/%s/%s" $path .Name }}" alt="{{ .Name }}">
@@ -57,7 +57,7 @@
   <h2 class="gallery-title">Fix Waterproof</h2>
   <div class="gallery-grid">
     {{ $path := "forward-surface-mounted-downlight/fix-waterproof" }}
-    {{ range (readDir (printf "content/%s" $path)) }}
+    {{ range (readDir (printf "static/%s" $path)) }}
       {{ if or (strings.HasSuffix .Name ".jpg") (strings.HasSuffix .Name ".png") }}
       <div class="gallery-item">
         <img src="{{ printf "/%s/%s" $path .Name }}" alt="{{ .Name }}">
@@ -72,7 +72,7 @@
   <h2 class="gallery-title">Swing</h2>
   <div class="gallery-grid">
     {{ $path := "forward-surface-mounted-downlight/swing" }}
-    {{ range (readDir (printf "content/%s" $path)) }}
+    {{ range (readDir (printf "static/%s" $path)) }}
       {{ if or (strings.HasSuffix .Name ".jpg") (strings.HasSuffix .Name ".png") }}
       <div class="gallery-item">
         <img src="{{ printf "/%s/%s" $path .Name }}" alt="{{ .Name }}">
