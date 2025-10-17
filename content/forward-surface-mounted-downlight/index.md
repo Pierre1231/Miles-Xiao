@@ -1,6 +1,5 @@
 ---
 title: "Forward Surface Mounted Downlight"
-type: landing
 date: 2025-10-09
 ---
 
