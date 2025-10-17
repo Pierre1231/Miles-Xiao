@@ -1,12 +1,16 @@
 {{ define "main" }}
 <div class="container mx-auto px-4 my-8">
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-    <!-- 左侧目录（基于 Markdown 标题自动生成） -->
+    <!-- 左侧分类导航（基于 gallery 的锚点） -->
     <aside class="lg:col-span-3">
       <div class="sticky top-24 p-4 rounded border border-slate-200 bg-white/70 backdrop-blur">
         <h2 class="font-semibold mb-3">{{ .Title }}</h2>
-        <nav class="toc text-sm leading-7">
-          {{ .TableOfContents }}
+        <nav class="text-sm leading-7">
+          <ul class="space-y-1">
+            <li><a class="hover:text-primary" href="#fix">Fix</a></li>
+            <li><a class="hover:text-primary" href="#fix-waterproof">Fix Waterproof</a></li>
+            <li><a class="hover:text-primary" href="#swing">Swing</a></li>
+          </ul>
         </nav>
       </div>
     </aside>

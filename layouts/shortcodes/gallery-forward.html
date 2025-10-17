@@ -50,8 +50,9 @@
 {{ $showTitle := .Get "show_title" | default "true" }}
 
 {{ if $paramPath }}
-  {{ $title := cond (ne $paramTitle "") $paramTitle (delimit (last 1 (split $paramPath "/")) "") }}
-  <div class="gallery-section">
+  {{ $last := (delimit (last 1 (split $paramPath "/")) "") }}
+  {{ $title := cond (ne $paramTitle "") $paramTitle $last }}
+  <div class="gallery-section" id="{{ $last }}">
     {{ if eq (lower $showTitle) "true" }}<h2 class="gallery-title">{{ $title }}</h2>{{ end }}
     <div class="gallery-grid">
       {{ range (readDir (printf "static/%s" $paramPath)) }}
