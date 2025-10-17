@@ -123,3 +123,26 @@
     font-size: 1rem;
   }
 }
+
+/* ================================
+   Navbar brand logo == navbar height
+   ================================ */
+.header .navbar {
+  min-height: 72px; /* desktop navbar height */
+}
+.header .navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 72px; /* match navbar height */
+}
+.header .navbar .navbar-brand img,
+.header .navbar .navbar-brand svg {
+  height: 100% !important; /* fill brand box */
+  max-height: 100% !important;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .header .navbar { min-height: 60px; }
+  .header .navbar .navbar-brand { height: 60px; }
+}
