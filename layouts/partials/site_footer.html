@@ -1,21 +1,58 @@
-<footer class="container mx-auto flex flex-col items-center text-center text-sm leading-6 mt-24 mb-4 text-slate-700">
-  <div class="w-full flex flex-col items-center gap-4">
-    <div>
-      <h3 class="font-semibold mb-2">Contact Us</h3>
-      <ul class="space-y-1 inline-block text-left">
-        <li>Phone: +86 (000) 0000 0000</li>
-        <li>Email: contact@example.com</li>
-        <li>Address: 1234 Example Rd, City, Country</li>
-      </ul>
+<footer class="w-full mt-24 text-white" style="background:#2b2f36;">
+  <div class="container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Shortcut Links -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Shortcut Links</h3>
+        <ul class="space-y-4 text-lg opacity-90">
+          <li><a href="/" class="hover:opacity-100">About Us</a></li>
+          <li><a href="/blog/" class="hover:opacity-100">News</a></li>
+          <li><a href="#solutions" class="hover:opacity-100">Product Application</a></li>
+          <li><a href="/forward-surface-mounted-downlight/" class="hover:opacity-100">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Product display -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Product display</h3>
+        <ul class="space-y-4 text-lg opacity-90">
+          <li><a href="/forward-surface-mounted-downlight/#fix" class="hover:opacity-100">Unbounded Series</a></li>
+          <li><a href="/forward-surface-mounted-downlight/#fix" class="hover:opacity-100">Yin Shang Series</a></li>
+          <li><a href="/forward-surface-mounted-downlight/#fix" class="hover:opacity-100">Engineering high-power embedded downlight series</a></li>
+          <li><a href="/forward-surface-mounted-downlight/#fix-waterproof" class="hover:opacity-100">Borderless well lamp series</a></li>
+          <li><a href="/forward-surface-mounted-downlight/#swing" class="hover:opacity-100">Embedded stretch spotlight series</a></li>
+          <li><a href="/forward-surface-mounted-downlight/#swing" class="hover:opacity-100">Hidden track light series</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Us -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-6">Contact Us</h3>
+        <ul class="space-y-4 text-lg opacity-90">
+          <li>
+            <span class="inline-block mr-2">📞</span>
+            Mr. Wang: +86-18623060616
+          </li>
+          <li>
+            <span class="inline-block mr-2">✉️</span>
+            421109303@qq.com
+          </li>
+          <li>
+            <span class="inline-block mr-2">🏠</span>
+            2/F, 12/Building, No. 8 Fuqing 1st Road, Henglan Town, Zhongshan, Guangdong
+          </li>
+          <li>
+            <a href="/media/coffee.jpg" target="_blank" rel="noopener" class="underline hover:no-underline">View License Image</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h3 class="font-semibold mb-2">License</h3>
-      <a href="/media/coffee.jpg" target="_blank" rel="noopener">View License Image</a>
+
+    <div class="mt-10 text-center text-sm opacity-80">
+      {{- with site.Params.footer.copyright.notice -}}
+      {{ replace . "{year}" (now | time.Format "2006") }}
+      {{- end -}}
     </div>
   </div>
-  
-  {{- with site.Params.footer.copyright.notice -}}
-  <p class="powered-by text-center">{{ replace . "{year}" (now | time.Format "2006") }}</p>
-  {{- end -}}
 </footer>
 
