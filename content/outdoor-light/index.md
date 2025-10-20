@@ -1,3 +1,4 @@
+
 {{< gallery path="light/Outdoor Light/Inground Light" title="Inground Light" show_title="true" >}}
 
 {{< gallery path="light/Outdoor Light/Outdoor Spot Light" title="Outdoor Spot Light" show_title="true" >}}
