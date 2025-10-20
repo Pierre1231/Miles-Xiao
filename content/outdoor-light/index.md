@@ -1,3 +1,6 @@
+---
+title: "Outdoor Light"
+---
 
 {{< gallery path="light/Outdoor Light/Inground Light" title="Inground Light" show_title="true" >}}
 

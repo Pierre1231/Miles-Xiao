@@ -1,3 +1,6 @@
+---
+title: "Spot Light"
+---
 
 {{< gallery path="light/Spot Light/Grid Light" title="Grid Light" show_title="true" >}}
 
