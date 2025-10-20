@@ -10,11 +10,14 @@ main:
     weight: 30
     hasChildren: true
   - parent: Product
-    name: Forward Surface Mounted Downlight
-    url: forward-surface-mounted-downlight/
+    name: Outdoor Light
+    url: outdoor-light/
   - parent: Product
-    name: Blog2
-    url: blog2/
+    name: Spot Light
+    url: spot-light/
+  - parent: Product
+    name: Track Light
+    url: track-light/
   - name: Resources
     weight: 40
     hasChildren: true
