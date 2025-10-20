@@ -1,6 +1,3 @@
-
-Discover our precision **Spot Lighting Collection** — engineered for focused illumination with modern design and superior performance.
-
 {{< gallery path="light/Spot Light/Grid Light" title="Grid Light" show_title="true" >}}
 
 {{< gallery path="light/Spot Light/Mini Spot Light" title="Mini Spot Light" show_title="true" >}}

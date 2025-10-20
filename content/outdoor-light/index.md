@@ -1,7 +1,3 @@
-
-
-Explore our comprehensive range of **Outdoor Lighting Solutions** — designed to enhance your exterior spaces with durability, efficiency, and aesthetic appeal.
-
 {{< gallery path="light/Outdoor Light/Inground Light" title="Inground Light" show_title="true" >}}
 
 {{< gallery path="light/Outdoor Light/Outdoor Spot Light" title="Outdoor Spot Light" show_title="true" >}}
