@@ -53,8 +53,12 @@ sections:
     id: solutions
     content:
       items:
-        - title: short beautiful sentence/name of ur company
-          text: long introduction of ur company
+        - title: SMARTER LIGHTING HK LTD
+          text: >
+            Smarter Lighting is an emerging brand in the lighting industry, distinguished by its innovative design philosophy and exceptional craftsmanship. Drawing inspiration from nature and optical aesthetics, it integrates modern artistry with functionality to create refined lighting solutions for both residential and commercial spaces.
+            
+            For Smarter Lighting, light is not just illumination—it is a medium of art that defines mood and depth. Through the balance of brightness and shadow, its designs merge science and aesthetics to shape tranquil and inspiring environments. Each piece is created to harmonize with its space, offering a seamless blend of comfort, elegance, and sensory pleasure—transforming light into a refined expression of life.
+
           feature_icon: check
 
           # Upload image to `assets/media/` and reference the filename here
