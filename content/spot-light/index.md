@@ -1,9 +1,3 @@
----
-title: "Spot Light"
-date: 2025-10-09
----
-
-# Spot Light
 
 Discover our precision **Spot Lighting Collection** — engineered for focused illumination with modern design and superior performance.
 

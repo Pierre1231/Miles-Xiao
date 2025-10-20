@@ -1,9 +1,4 @@
----
-title: "Outdoor Light"
-date: 2025-10-09
----
 
-# Outdoor Light
 
 Explore our comprehensive range of **Outdoor Lighting Solutions** — designed to enhance your exterior spaces with durability, efficiency, and aesthetic appeal.
 
