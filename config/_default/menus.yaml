@@ -10,14 +10,40 @@ main:
     weight: 30
     hasChildren: true
   - parent: Product
+    name: Indoor Light
+    weight: 31
+    hasChildren: true
+  - parent: Indoor Light
+    name: Grid Light
+    url: spot-light/#Grid-Light
+  - parent: Indoor Light
+    name: Mini Spot Light
+    url: spot-light/#Mini-Spot-Light
+  - parent: Indoor Light
+    name: Recessed Spot Light
+    url: spot-light/#Recessed-Spot-Light
+  - parent: Indoor Light
+    name: Surface-Mounted Spot Light
+    url: spot-light/#Surface-Mounted-Spot-Light
+  - parent: Indoor Light
+    name: Magnetic Track Lights
+    url: track-light/#Magnetic-Track-Lights
+  - parent: Product
     name: Outdoor Light
-    url: outdoor-light/
-  - parent: Product
-    name: Spot Light
-    url: spot-light/
-  - parent: Product
-    name: Track Light
-    url: track-light/
+    weight: 32
+    hasChildren: true
+  - parent: Outdoor Light
+    name: Outdoor Spot Light
+    url: outdoor-light/#Outdoor-Spot-Light
+  - parent: Outdoor Light
+    name: Surface-Mounted Light
+    url: outdoor-light/#Surface-Mounted-Light
+  - parent: Outdoor Light
+    name: Wall Light
+    url: outdoor-light/#Wall-Light
+  - parent: Outdoor Light
+    name: Yard Light
+    url: outdoor-light/#Yard-Light
   - name: Resources
     weight: 40
     hasChildren: true
