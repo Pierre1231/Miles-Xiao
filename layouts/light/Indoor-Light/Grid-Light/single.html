@@ -1,0 +1,548 @@
+{{ define "main" }}
+<style>
+/* 产品详情页专用样式 */
+.product-detail-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 0;
+}
+
+.breadcrumb-item {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-item:hover {
+  color: #d97706;
+}
+
+.breadcrumb-separator {
+  color: #d1d5db;
+  margin: 0 0.5rem;
+}
+
+.product-main {
+  background: white;
+  margin: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.product-gallery {
+  position: relative;
+  background: #f9fafb;
+}
+
+.main-image {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  background: white;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+.thumbnail-gallery {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: #d97706;
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 2rem;
+}
+
+.product-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.product-type {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.variant-selector {
+  margin-bottom: 2rem;
+}
+
+.variant-label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.variant-options {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.variant-option {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  color: #374151;
+}
+
+.variant-option:hover {
+  border-color: #d97706;
+  background: #fef3c7;
+}
+
+.variant-option.active {
+  border-color: #d97706;
+  background: #d97706;
+  color: white;
+}
+
+.info-tabs {
+  margin-top: 2rem;
+}
+
+.tab-nav {
+  display: flex;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+.tab-button {
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: #374151;
+  background: #f9fafb;
+}
+
+.tab-button.active {
+  color: #d97706;
+  border-bottom-color: #d97706;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.spec-label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.spec-value {
+  color: #6b7280;
+  text-align: right;
+}
+
+.technical-drawing {
+  text-align: center;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 2px dashed #d1d5db;
+}
+
+.contact-section {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  margin: 2rem 0;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 1rem;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contact-btn.primary {
+  background: #d97706;
+  color: white;
+}
+
+.contact-btn.primary:hover {
+  background: #b45309;
+  transform: translateY(-2px);
+}
+
+.contact-btn.secondary {
+  background: white;
+  color: #374151;
+  border: 2px solid #d97706;
+}
+
+.contact-btn.secondary:hover {
+  background: #d97706;
+  color: white;
+}
+
+.related-products {
+  margin: 3rem 0;
+}
+
+.related-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: white;
+}
+
+.product-card-info {
+  padding: 1.5rem;
+}
+
+.product-card-title {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.product-card-type {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .product-main {
+    margin: 1rem 0;
+    border-radius: 0;
+  }
+  
+  .product-info {
+    padding: 1.5rem;
+  }
+  
+  .product-title {
+    font-size: 1.5rem;
+  }
+  
+  .main-image {
+    height: 300px;
+  }
+  
+  .variant-options {
+    flex-direction: column;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<div class="product-detail-page">
+  <!-- 面包屑导航 -->
+  <div class="breadcrumb">
+    <div class="container mx-auto px-4">
+      <nav class="flex items-center text-sm">
+        <a href="/" class="breadcrumb-item">首页</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="/spot-light/" class="breadcrumb-item">射灯</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-item text-gray-900">{{ .Title }}</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4">
+    <!-- 产品主体 -->
+    <div class="product-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+        <!-- 左栏：产品图片画廊 -->
+        <div class="product-gallery">
+          <img id="mainImage" src="/light/Indoor Light/Grid Light/BD5001-55.png" alt="{{ .Title }}" class="main-image">
+          <div class="thumbnail-gallery">
+            <img src="/light/Indoor Light/Grid Light/BD5001-55.png" alt="主视图" class="thumbnail active" onclick="changeMainImage(this)">
+            <img src="/light/Indoor Light/Grid Light/BD5002-55.png" alt="侧视图" class="thumbnail" onclick="changeMainImage(this)">
+          </div>
+        </div>
+
+        <!-- 右栏：产品信息 -->
+        <div class="product-info">
+          <h1 class="product-title">{{ .Title }}</h1>
+          <p class="product-type">网格灯</p>
+
+          <!-- 版本选择器 -->
+          <div class="variant-selector">
+            <label class="variant-label">选择版本</label>
+            <div class="variant-options">
+              <div class="variant-option active" onclick="selectVariant(this)">标准版</div>
+              <div class="variant-option" onclick="selectVariant(this)">高配版</div>
+            </div>
+          </div>
+
+          <!-- 信息切换组件 -->
+          <div class="info-tabs">
+            <div class="tab-nav">
+              <button class="tab-button active" onclick="switchTab(this, 'specs')">技术规格</button>
+              <button class="tab-button" onclick="switchTab(this, 'drawing')">技术图纸</button>
+            </div>
+
+            <!-- 技术规格标签页 -->
+            <div id="specs" class="tab-content active">
+              <div class="specs-grid">
+                <div class="spec-item">
+                  <span class="spec-label">产品代码</span>
+                  <span class="spec-value">BD5001-55</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">颜色</span>
+                  <span class="spec-value">白色/黑色</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">光源</span>
+                  <span class="spec-value">LED</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">电源</span>
+                  <span class="spec-value">220V AC</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">调光器</span>
+                  <span class="spec-value">支持</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">防护等级</span>
+                  <span class="spec-value">IP20</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">功率</span>
+                  <span class="spec-value">55W</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">色温</span>
+                  <span class="spec-value">3000K-6500K</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">材质</span>
+                  <span class="spec-value">铝合金</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">尺寸</span>
+                  <span class="spec-value">600×600×50mm</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 技术图纸标签页 -->
+            <div id="drawing" class="tab-content">
+              <div class="technical-drawing">
+                <p class="text-gray-500 mb-4">技术图纸</p>
+                <div class="bg-white p-8 rounded-lg border-2 border-dashed border-gray-300">
+                  <svg class="w-full h-64 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="text-sm text-gray-500 mt-2">工程图纸预留区域</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 联系信息 -->
+    <div class="contact-section">
+      <h3 class="contact-title">需要更多信息？</h3>
+      <p class="text-amber-800 mb-4">我们的专业团队随时为您提供产品咨询和技术支持</p>
+      <div class="contact-buttons">
+        <a href="tel:+86-13925362921" class="contact-btn primary">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          电话咨询
+        </a>
+        <a href="mailto:Miles@smartereck.com" class="contact-btn secondary">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          邮件咨询
+        </a>
+      </div>
+    </div>
+
+    <!-- 同系列其他产品 -->
+    <div class="related-products">
+      <h2 class="related-title">同系列其他产品</h2>
+      <div class="products-grid">
+        <div class="product-card" onclick="window.location.href='/light/Indoor-Light/Grid-Light/BD5002-55/'">
+          <img src="/light/Indoor Light/Grid Light/BD5002-55.png" alt="BD5002-55" class="product-card-image">
+          <div class="product-card-info">
+            <h3 class="product-card-title">BD5002-55</h3>
+            <p class="product-card-type">网格灯</p>
+          </div>
+        </div>
+        <div class="product-card" onclick="window.location.href='/spot-light/'">
+          <img src="/light/Indoor Light/Mini Spot Light/BD2001-15.jpg" alt="查看更多" class="product-card-image">
+          <div class="product-card-info">
+            <h3 class="product-card-title">查看更多产品</h3>
+            <p class="product-card-type">射灯系列</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// 图片切换功能
+function changeMainImage(thumbnail) {
+  const mainImage = document.getElementById('mainImage');
+  const thumbnails = document.querySelectorAll('.thumbnail');
+  
+  // 更新主图
+  mainImage.src = thumbnail.src;
+  mainImage.alt = thumbnail.alt;
+  
+  // 更新缩略图状态
+  thumbnails.forEach(thumb => thumb.classList.remove('active'));
+  thumbnail.classList.add('active');
+}
+
+// 版本选择功能
+function selectVariant(option) {
+  const options = document.querySelectorAll('.variant-option');
+  options.forEach(opt => opt.classList.remove('active'));
+  option.classList.add('active');
+}
+
+// 标签页切换功能
+function switchTab(button, tabId) {
+  const buttons = document.querySelectorAll('.tab-button');
+  const contents = document.querySelectorAll('.tab-content');
+  
+  // 移除所有活动状态
+  buttons.forEach(btn => btn.classList.remove('active'));
+  contents.forEach(content => content.classList.remove('active'));
+  
+  // 添加活动状态
+  button.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
+{{ end }}
