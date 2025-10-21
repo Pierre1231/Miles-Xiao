@@ -91,7 +91,7 @@
       {{ range (readDir (printf "static/%s" $paramPath)) }}
         {{ if or (strings.HasSuffix .Name ".jpg") (strings.HasSuffix .Name ".png") }}
         <div class="gallery-item">
-          <a href="{{ printf "/light/%s/%s/" (replace $paramPath "light/" "") (replace (replace .Name ".jpg" "") ".png" "") }}" class="block">
+          <a href="{{ printf "/light/%s/%s/" (replace (replace $paramPath "light/" "") " " "-") (replace (replace (replace .Name ".jpg" "") ".png" "") " " "-") }}" class="block">
             <img src="{{ printf "/%s/%s" $paramPath .Name }}" alt="{{ .Name }}">
             <div class="gallery-caption">{{ replace (replace .Name ".jpg" "") ".png" "" }}</div>
           </a>
