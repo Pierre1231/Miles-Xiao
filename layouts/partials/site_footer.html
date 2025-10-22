@@ -1,8 +1,14 @@
+<style>
+.grid-cols-14 {
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+}
+</style>
+
 <footer class="w-full mt-24 text-white" style="background:#2b2f36;">
   <div class="container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+    <div class="grid grid-cols-1 md:grid-cols-14 gap-10 items-start">
       <!-- Brand / Company & Social -->
-      <div class="md:col-span-3">
+      <div class="md:col-span-4">
         <div class="mb-6">
           <img src="/media/logo.png" alt="Logo" class="h-20 w-auto mb-4">
           <p class="opacity-90 leading-7">
@@ -21,17 +27,32 @@
           </div>
         </div>
       </div>
-               <!-- Product display -->
-               <div class="md:col-span-3 md:col-start-7">
-                <h3 class="text-lg font-semibold mb-4">Product Series</h3>
-                <ul class="space-y-2 text-sm opacity-90">
-                  <li><a href="/indoor-light/" class="hover:opacity-100">Indoor Light</a></li>
-                  <li><a href="/outdoor-light/" class="hover:opacity-100">Outdoor Light</a></li>
-                </ul>
-               </div>
+
+      <!-- Indoor Light Products -->
+      <div class="md:col-span-2 md:col-start-9">
+        <h3 class="text-lg font-semibold mb-4">Indoor Light</h3>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><a href="/indoor-light/#Grid-Light" class="hover:opacity-100">Grid Light</a></li>
+          <li><a href="/indoor-light/#Mini-Spot-Light" class="hover:opacity-100">Mini Spot Light</a></li>
+          <li><a href="/indoor-light/#Recessed-Spot-Light" class="hover:opacity-100">Recessed Spot Light</a></li>
+          <li><a href="/indoor-light/#Surface-Mounted-Spot-Light" class="hover:opacity-100">Surface-Mounted Spot Light</a></li>
+          <li><a href="/indoor-light/#Magnetic-Track-Lights" class="hover:opacity-100">Magnetic Track Lights</a></li>
+        </ul>
+      </div>
+
+      <!-- Outdoor Light Products -->
+      <div class="md:col-span-2 md:col-start-11">
+        <h3 class="text-lg font-semibold mb-4">Outdoor Light</h3>
+        <ul class="space-y-2 text-sm opacity-90">
+          <li><a href="/outdoor-light/#Outdoor-Spot-Light" class="hover:opacity-100">Outdoor Spot Light</a></li>
+          <li><a href="/outdoor-light/#Surface-Mounted-Light" class="hover:opacity-100">Surface-Mounted Light</a></li>
+          <li><a href="/outdoor-light/#Wall-Light" class="hover:opacity-100">Wall Light</a></li>
+          <li><a href="/outdoor-light/#Yard-Light" class="hover:opacity-100">Yard Light</a></li>
+        </ul>
+      </div>
 
       <!-- Contact Us -->
-      <div class="md:col-span-3 md:col-start-10">
+      <div class="md:col-span-3 md:col-start-13">
         <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
         <ul class="space-y-2 text-sm opacity-90">
           <li>
@@ -41,16 +62,10 @@
             E-mail: Miles@smartereck.com
           </li>
           <li>
-            Henglan Town, Zhongshan City, Guangdong
+            Address: Henglan Town, Zhongshan City, Guangdong
           </li>
           <li>
-            Post Code: 528478
-          </li>
-          <li>
-            Contact Person: Miles Xiao
-          </li>
-          <li>
-            <a href="/media/coffee.jpg" target="_blank" rel="noopener" class="underline hover:no-underline">View License Image</a>
+            Postal Code: 528478
           </li>
         </ul>
       </div>
