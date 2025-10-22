@@ -124,33 +124,6 @@
   }
 }
 
-/* ================================
-   Navbar brand logo == navbar height
-   ================================ */
-.header .navbar {
-  min-height: 100px; /* desktop navbar height */
-  padding: 0 1rem; /* ensure proper spacing */
-}
-.header .navbar .navbar-brand {
-  display: flex;
-  align-items: center;
-  height: 100px; /* match navbar height */
-}
-.header .navbar .navbar-brand img,
-.header .navbar .navbar-brand svg {
-  height: 100% !important; /* fill brand box */
-  max-height: 100% !important;
-  width: auto;
-  padding: 8px 0; /* add some padding for better visual spacing */
-}
-
-@media (max-width: 768px) {
-  .header .navbar { 
-    min-height: 80px; 
-    padding: 0 0.5rem; /* smaller padding on mobile */
-  }
-  .header .navbar .navbar-brand { height: 80px; }
-}
 
 /* ================================
    Company Introduction Styling
