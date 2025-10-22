@@ -11,7 +11,7 @@
       <div class="md:col-span-4">
         <div class="mb-6">
           <img src="/media/logo.png" alt="Logo" class="h-20 w-auto mb-4">
-          <p class="opacity-90 leading-7">
+          <p class="opacity-90 leading-6 text-sm">
             SMARTER Lighting<br>
             Premium lighting solutions
           </p>
@@ -31,7 +31,7 @@
       <!-- Indoor Light Products -->
       <div class="md:col-span-2 md:col-start-9">
         <h3 class="text-lg font-semibold mb-4">Indoor Light</h3>
-        <ul class="space-y-2 text-sm opacity-90">
+        <ul class="space-y-2 text-xs opacity-90">
           <li><a href="/indoor-light/#Grid-Light" class="hover:opacity-100">Grid Light</a></li>
           <li><a href="/indoor-light/#Mini-Spot-Light" class="hover:opacity-100">Mini Spot Light</a></li>
           <li><a href="/indoor-light/#Recessed-Spot-Light" class="hover:opacity-100">Recessed Spot Light</a></li>
@@ -43,7 +43,7 @@
       <!-- Outdoor Light Products -->
       <div class="md:col-span-2 md:col-start-11">
         <h3 class="text-lg font-semibold mb-4">Outdoor Light</h3>
-        <ul class="space-y-2 text-sm opacity-90">
+        <ul class="space-y-2 text-xs opacity-90">
           <li><a href="/outdoor-light/#Outdoor-Spot-Light" class="hover:opacity-100">Outdoor Spot Light</a></li>
           <li><a href="/outdoor-light/#Surface-Mounted-Light" class="hover:opacity-100">Surface-Mounted Light</a></li>
           <li><a href="/outdoor-light/#Wall-Light" class="hover:opacity-100">Wall Light</a></li>
@@ -54,7 +54,7 @@
       <!-- Contact Us -->
       <div class="md:col-span-3 md:col-start-13">
         <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-        <ul class="space-y-2 text-sm opacity-90">
+        <ul class="space-y-2 text-xs opacity-90">
           <li>
             Phone: +86-13925362921
           </li>
@@ -71,7 +71,7 @@
       </div>
     </div>
 
-    <div class="mt-10 text-center text-sm opacity-80">
+    <div class="mt-10 text-center text-xs opacity-80">
       {{- with site.Params.footer.copyright.notice -}}
       {{ replace . "{year}" (now | time.Format "2006") }}
       {{- end -}}
