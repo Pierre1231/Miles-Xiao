@@ -1,4 +1,5 @@
 <style>
+html { scroll-behavior: smooth; }
 .gallery-section {
   margin-bottom: 3rem;
 }
@@ -8,6 +9,9 @@
   margin-bottom: 1.2rem;
   text-transform: capitalize;
   color: #222;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  scroll-margin-top: 6rem;
 }
 .gallery-grid {
   display: grid;
@@ -85,8 +89,8 @@
 {{ if $paramPath }}
   {{ $last := (delimit (last 1 (split $paramPath "/")) "") }}
   {{ $title := cond (ne $paramTitle "") $paramTitle $last }}
-  <div class="gallery-section" id="{{ $title }}">
-    {{ if eq (lower $showTitle) "true" }}<h2 class="gallery-title" id="{{ $title }}">{{ $title }}</h2>{{ end }}
+  <div class="gallery-section" id="{{ replace $title " " "-" }}">
+    {{ if eq (lower $showTitle) "true" }}<h2 class="gallery-title" id="{{ replace $title " " "-" }}">{{ $title }}</h2>{{ end }}
     <div class="gallery-grid">
       {{ range (readDir (printf "static/%s" $paramPath)) }}
         {{ if or (strings.HasSuffix .Name ".jpg") (strings.HasSuffix .Name ".png") }}
