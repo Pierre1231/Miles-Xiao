@@ -373,91 +373,101 @@
     <!-- 产品主体 -->
     <div class="product-main">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        <!-- 左栏：产品图片画廊 -->
+        <!-- Left Column: Product Gallery -->
         <div class="product-gallery">
           <img id="mainImage" src="/light/Indoor Light/Grid Light/BD5001-55.png" alt="{{ .Title }}" class="main-image">
-          <div class="thumbnail-gallery">
-            <img src="/light/Indoor Light/Grid Light/BD5001-55.png" alt="主视图" class="thumbnail active" onclick="changeMainImage(this)">
-            <img src="/light/Indoor Light/Grid Light/BD5002-55.png" alt="侧视图" class="thumbnail" onclick="changeMainImage(this)">
-          </div>
         </div>
 
-        <!-- 右栏：产品信息 -->
+        <!-- Right Column: Product Information -->
         <div class="product-info">
-          <h1 class="product-title">{{ .Title }}</h1>
-          <p class="product-type">网格灯</p>
+          <h1 class="product-title">{{ .Title }} Series</h1>
+          <p class="product-type">Grid Light</p>
 
-          <!-- 版本选择器 -->
+          <!-- Model Selector -->
           <div class="variant-selector">
-            <label class="variant-label">选择版本</label>
+            <label class="variant-label">Select Model</label>
             <div class="variant-options">
-              <div class="variant-option active" onclick="selectVariant(this)">标准版</div>
-              <div class="variant-option" onclick="selectVariant(this)">高配版</div>
+              <div class="variant-option active" data-model="55" onclick="selectModel(this, '55')">BD5001-55 (6W)</div>
+              <div class="variant-option" data-model="75" onclick="selectModel(this, '75')">BD5001-75 (12W)</div>
+              <div class="variant-option" data-model="95" onclick="selectModel(this, '95')">BD5001-95 (20W)</div>
             </div>
           </div>
 
-          <!-- 信息切换组件 -->
+          <!-- Frame Option Selector -->
+          <div class="variant-selector">
+            <label class="variant-label">Frame Option</label>
+            <div class="variant-options">
+              <div class="variant-option active" data-frame="with" onclick="selectFrame(this, 'with')">With Frame</div>
+              <div class="variant-option" data-frame="without" onclick="selectFrame(this, 'without')">Frameless (A)</div>
+            </div>
+          </div>
+
+          <!-- Information Tabs -->
           <div class="info-tabs">
             <div class="tab-nav">
-              <button class="tab-button active" onclick="switchTab(this, 'specs')">技术规格</button>
-              <button class="tab-button" onclick="switchTab(this, 'drawing')">技术图纸</button>
+              <button class="tab-button active" onclick="switchTab(this, 'specs')">Technical Specifications</button>
+              <button class="tab-button" onclick="switchTab(this, 'drawing')">Technical Drawing</button>
             </div>
 
-            <!-- 技术规格标签页 -->
+            <!-- Technical Specifications Tab -->
             <div id="specs" class="tab-content active">
               <div class="specs-grid">
                 <div class="spec-item">
-                  <span class="spec-label">产品代码</span>
-                  <span class="spec-value">BD5001-55</span>
+                  <span class="spec-label">Product Code</span>
+                  <span class="spec-value" id="spec-code">BD5001-55</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">颜色</span>
-                  <span class="spec-value">白色/黑色</span>
+                  <span class="spec-label">Voltage</span>
+                  <span class="spec-value">AC 220V</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">光源</span>
-                  <span class="spec-value">LED</span>
+                  <span class="spec-label">Power</span>
+                  <span class="spec-value" id="spec-power">6W</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">电源</span>
-                  <span class="spec-value">220V AC</span>
+                  <span class="spec-label">Dimensions</span>
+                  <span class="spec-value" id="spec-dimensions">62×62×H75mm</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">调光器</span>
-                  <span class="spec-value">支持</span>
+                  <span class="spec-label">Cutout Size</span>
+                  <span class="spec-value" id="spec-cutout">55×55mm</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">防护等级</span>
-                  <span class="spec-value">IP20</span>
+                  <span class="spec-label">Color Temperature</span>
+                  <span class="spec-value">2700K / 3000K / 3500K / 4000K</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">功率</span>
-                  <span class="spec-value">55W</span>
+                  <span class="spec-label">Beam Angle</span>
+                  <span class="spec-value" id="spec-angle">15° / 24° / 36°</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">色温</span>
-                  <span class="spec-value">3000K-6500K</span>
+                  <span class="spec-label">Body Color</span>
+                  <span class="spec-value">Matte White / Matte Black</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">材质</span>
-                  <span class="spec-value">铝合金</span>
+                  <span class="spec-label">Frame Color</span>
+                  <span class="spec-value">Gun Black / Gold / Matte Silver / White</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">尺寸</span>
-                  <span class="spec-value">600×600×50mm</span>
+                  <span class="spec-label">Driver</span>
+                  <span class="spec-value">ADC12 PC</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Finish</span>
+                  <span class="spec-value">Die-casting</span>
                 </div>
               </div>
             </div>
 
-            <!-- 技术图纸标签页 -->
+            <!-- Technical Drawing Tab -->
             <div id="drawing" class="tab-content">
               <div class="technical-drawing">
-                <p class="text-gray-500 mb-4">技术图纸</p>
+                <p class="text-gray-500 mb-4">Technical Drawing</p>
                 <div class="bg-white p-8 rounded-lg border-2 border-dashed border-gray-300">
                   <svg class="w-full h-64 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
                   </svg>
-                  <p class="text-sm text-gray-500 mt-2">工程图纸预留区域</p>
+                  <p class="text-sm text-gray-500 mt-2">Engineering Drawing Area</p>
                 </div>
               </div>
             </div>
@@ -470,37 +480,88 @@
 </div>
 
 <script>
-// 图片切换功能
-function changeMainImage(thumbnail) {
-  const mainImage = document.getElementById('mainImage');
-  const thumbnails = document.querySelectorAll('.thumbnail');
-  
-  // 更新主图
-  mainImage.src = thumbnail.src;
-  mainImage.alt = thumbnail.alt;
-  
-  // 更新缩略图状态
-  thumbnails.forEach(thumb => thumb.classList.remove('active'));
-  thumbnail.classList.add('active');
-}
+// Product specifications database
+const productSpecs = {
+  '55': {
+    code: 'BD5001-55',
+    power: '6W',
+    dimensions: '62×62×H75mm',
+    cutout: '55×55mm',
+    angle: '15° / 24° / 36°'
+  },
+  '75': {
+    code: 'BD5001-75',
+    power: '12W',
+    dimensions: '85×85×H89mm',
+    cutout: '75×75mm',
+    angle: '60°'
+  },
+  '95': {
+    code: 'BD5001-95',
+    power: '20W',
+    dimensions: '104×104×H115mm',
+    cutout: '95×95mm',
+    angle: '15° / 24° / 36°'
+  }
+};
 
-// 版本选择功能
-function selectVariant(option) {
-  const options = document.querySelectorAll('.variant-option');
-  options.forEach(opt => opt.classList.remove('active'));
+// Current selection state
+let currentModel = '55';
+let currentFrame = 'with';
+
+// Model selection function
+function selectModel(option, model) {
+  currentModel = model;
+  
+  // Update UI - model options
+  const modelOptions = option.parentElement.querySelectorAll('.variant-option');
+  modelOptions.forEach(opt => opt.classList.remove('active'));
   option.classList.add('active');
+  
+  // Update image and specifications
+  updateProductDisplay();
 }
 
-// 标签页切换功能
+// Frame selection function
+function selectFrame(option, frame) {
+  currentFrame = frame;
+  
+  // Update UI - frame options
+  const frameOptions = option.parentElement.querySelectorAll('.variant-option');
+  frameOptions.forEach(opt => opt.classList.remove('active'));
+  option.classList.add('active');
+  
+  // Update image
+  updateProductDisplay();
+}
+
+// Update product display (image and specs)
+function updateProductDisplay() {
+  const specs = productSpecs[currentModel];
+  const frameSuffix = currentFrame === 'without' ? 'A' : '';
+  const imagePath = `/light/Indoor Light/Grid Light/BD5001-${currentModel}${frameSuffix}.png`;
+  
+  // Update main image
+  document.getElementById('mainImage').src = imagePath;
+  
+  // Update specifications
+  document.getElementById('spec-code').textContent = specs.code + (frameSuffix ? 'A' : '');
+  document.getElementById('spec-power').textContent = specs.power;
+  document.getElementById('spec-dimensions').textContent = specs.dimensions;
+  document.getElementById('spec-cutout').textContent = specs.cutout;
+  document.getElementById('spec-angle').textContent = specs.angle;
+}
+
+// Tab switching function
 function switchTab(button, tabId) {
   const buttons = document.querySelectorAll('.tab-button');
   const contents = document.querySelectorAll('.tab-content');
   
-  // 移除所有活动状态
+  // Remove all active states
   buttons.forEach(btn => btn.classList.remove('active'));
   contents.forEach(content => content.classList.remove('active'));
   
-  // 添加活动状态
+  // Add active state
   button.classList.add('active');
   document.getElementById(tabId).classList.add('active');
 }
