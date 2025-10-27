@@ -81,137 +81,112 @@
 }
 
 .product-info {
-  padding: 2rem;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .product-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111827;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .product-type {
-  color: #6b7280;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  color: #86868b;
+  font-size: 1rem;
+  margin-bottom: 0;
+  font-weight: 400;
 }
 
 .variant-selector {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .variant-label {
   font-weight: 600;
-  color: #374151;
-  margin-bottom: 0.75rem;
+  color: #1d1d1f;
+  margin-bottom: 0.5rem;
   display: block;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
 }
 
 .variant-options {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
 .variant-option {
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
   background: white;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-weight: 500;
-  color: #374151;
+  font-weight: 400;
+  color: #1d1d1f;
+  font-size: 0.875rem;
 }
 
 .variant-option:hover {
-  border-color: #d97706;
-  background: #fef3c7;
+  border-color: #86868b;
+  background: #f5f5f7;
 }
 
 .variant-option.active {
-  border-color: #d97706;
-  background: #d97706;
+  border-color: #0071e3;
+  background: #0071e3;
   color: white;
 }
 
-.info-tabs {
-  margin-top: 2rem;
+.specs-section {
+  margin-top: 0;
 }
 
-.tab-nav {
-  display: flex;
-  border-bottom: 2px solid #e5e7eb;
-  margin-bottom: 1.5rem;
-}
-
-.tab-button {
-  padding: 1rem 1.5rem;
-  background: none;
-  border: none;
+.specs-title {
+  font-size: 1.125rem;
   font-weight: 600;
-  color: #6b7280;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-bottom: 3px solid transparent;
-  position: relative;
+  color: #1d1d1f;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
 }
 
-.tab-button:hover {
-  color: #374151;
-  background: #f9fafb;
+.specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.tab-button.active {
-  color: #d97706;
-  border-bottom-color: #d97706;
-}
-
-.tab-content {
-  display: none;
-  animation: fadeIn 0.3s ease;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.specs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.spec-item {
+.spec-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f5f5f7;
+}
+
+.spec-row:last-child {
+  border-bottom: none;
 }
 
 .spec-label {
-  font-weight: 600;
-  color: #374151;
+  font-weight: 400;
+  color: #86868b;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
 }
 
 .spec-value {
-  color: #6b7280;
+  color: #1d1d1f;
   text-align: right;
-}
-
-.technical-drawing {
-  text-align: center;
-  padding: 2rem;
-  background: #f9fafb;
-  border-radius: 8px;
-  border: 2px dashed #d1d5db;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 .contact-section {
@@ -321,7 +296,7 @@
   font-size: 0.9rem;
 }
 
-/* 响应式设计 */
+/* Responsive Design */
 @media (max-width: 768px) {
   .product-main {
     margin: 1rem 0;
@@ -329,28 +304,21 @@
   }
   
   .product-info {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
   }
   
   .product-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   
   .main-image {
     height: 300px;
   }
   
-  .variant-options {
-    flex-direction: column;
-  }
-  
-  .contact-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .specs-grid {
-    grid-template-columns: 1fr;
+  .spec-label,
+  .spec-value {
+    font-size: 0.8125rem;
   }
 }
 </style>
@@ -402,73 +370,37 @@
             </div>
           </div>
 
-          <!-- Information Tabs -->
-          <div class="info-tabs">
-            <div class="tab-nav">
-              <button class="tab-button active" onclick="switchTab(this, 'specs')">Technical Specifications</button>
-              <button class="tab-button" onclick="switchTab(this, 'drawing')">Technical Drawing</button>
-            </div>
-
-            <!-- Technical Specifications Tab -->
-            <div id="specs" class="tab-content active">
-              <div class="specs-grid">
-                <div class="spec-item">
-                  <span class="spec-label">Product Code</span>
-                  <span class="spec-value" id="spec-code">BD5001-55</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Voltage</span>
-                  <span class="spec-value">AC 220V</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Power</span>
-                  <span class="spec-value" id="spec-power">6W</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Dimensions</span>
-                  <span class="spec-value" id="spec-dimensions">62×62×H75mm</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Cutout Size</span>
-                  <span class="spec-value" id="spec-cutout">55×55mm</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Color Temperature</span>
-                  <span class="spec-value">2700K / 3000K / 3500K / 4000K</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Beam Angle</span>
-                  <span class="spec-value" id="spec-angle">15° / 24° / 36°</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Body Color</span>
-                  <span class="spec-value">Matte White / Matte Black</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Frame Color</span>
-                  <span class="spec-value">Gun Black / Gold / Matte Silver / White</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Driver</span>
-                  <span class="spec-value">ADC12 PC</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Finish</span>
-                  <span class="spec-value">Die-casting</span>
-                </div>
+          <!-- Specifications -->
+          <div class="specs-section">
+            <h3 class="specs-title">Specifications</h3>
+            <div class="specs-list">
+              <div class="spec-row">
+                <span class="spec-label">Voltage</span>
+                <span class="spec-value">AC 220V</span>
               </div>
-            </div>
-
-            <!-- Technical Drawing Tab -->
-            <div id="drawing" class="tab-content">
-              <div class="technical-drawing">
-                <p class="text-gray-500 mb-4">Technical Drawing</p>
-                <div class="bg-white p-8 rounded-lg border-2 border-dashed border-gray-300">
-                  <svg class="w-full h-64 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
-                  </svg>
-                  <p class="text-sm text-gray-500 mt-2">Engineering Drawing Area</p>
-                </div>
+              <div class="spec-row">
+                <span class="spec-label">Power</span>
+                <span class="spec-value" id="spec-power">6W</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Body Dimensions</span>
+                <span class="spec-value" id="spec-dimensions">62×62×H75mm</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Cutout</span>
+                <span class="spec-value" id="spec-cutout">55×55mm</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Color Temperature</span>
+                <span class="spec-value">2700K / 3000K / 3500K / 4000K</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Beam Angle</span>
+                <span class="spec-value" id="spec-angle">15° / 24° / 36°</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Appearance</span>
+                <span class="spec-value">Matte White / Matte Black</span>
               </div>
             </div>
           </div>
@@ -550,20 +482,6 @@ function updateProductDisplay() {
   document.getElementById('spec-dimensions').textContent = specs.dimensions;
   document.getElementById('spec-cutout').textContent = specs.cutout;
   document.getElementById('spec-angle').textContent = specs.angle;
-}
-
-// Tab switching function
-function switchTab(button, tabId) {
-  const buttons = document.querySelectorAll('.tab-button');
-  const contents = document.querySelectorAll('.tab-content');
-  
-  // Remove all active states
-  buttons.forEach(btn => btn.classList.remove('active'));
-  contents.forEach(content => content.classList.remove('active'));
-  
-  // Add active state
-  button.classList.add('active');
-  document.getElementById(tabId).classList.add('active');
 }
 </script>
 {{ end }}
