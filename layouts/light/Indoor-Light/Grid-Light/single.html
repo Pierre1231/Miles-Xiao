@@ -362,7 +362,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
         <!-- Left Column: Product Gallery -->
         <div class="product-gallery">
-          <img id="mainImage" src="/light/Indoor Light/Grid Light/{{ .Title }}-55.png" alt="{{ .Title }}" class="main-image">
+          <img id="mainImage" src="/light/Indoor Light/Grid Light/{{ .Title }}.png" alt="{{ .Title }}" class="main-image">
         </div>
 
         <!-- Right Column: Product Information -->
@@ -375,13 +375,8 @@
           <!-- Model Selector -->
           <div class="variant-selector">
             <label class="variant-label">Select Model</label>
-            <select id="modelSelect" class="variant-select" onchange="selectModelFromDropdown(this.value)">
-              <option value="55-with">{{ .Title }}-55 (With Frame)</option>
-              <option value="55-without">{{ .Title }}-55 (Frameless)</option>
-              <option value="75-with">{{ .Title }}-75 (With Frame)</option>
-              <option value="75-without">{{ .Title }}-75 (Frameless)</option>
-              <option value="95-with">{{ .Title }}-95 (With Frame)</option>
-              <option value="95-without">{{ .Title }}-95 (Frameless)</option>
+            <select id="modelSelect" class="variant-select">
+              <!-- Options will be populated by JavaScript -->
             </select>
           </div>
 
@@ -391,7 +386,7 @@
             <div class="specs-list">
               <div class="spec-row">
                 <span class="spec-label">Product Code</span>
-                <span class="spec-value" id="spec-code">{{ .Title }}-55</span>
+                <span class="spec-value" id="spec-code">{{ .Title }}</span>
               </div>
               <div class="spec-row">
                 <span class="spec-label">Voltage</span>
@@ -399,15 +394,15 @@
               </div>
               <div class="spec-row">
                 <span class="spec-label">Power</span>
-                <span class="spec-value" id="spec-power">6W</span>
+                <span class="spec-value" id="spec-power">-</span>
               </div>
               <div class="spec-row">
                 <span class="spec-label">Body Dimensions</span>
-                <span class="spec-value" id="spec-dimensions">62×62×H75mm</span>
+                <span class="spec-value" id="spec-dimensions">-</span>
               </div>
               <div class="spec-row">
                 <span class="spec-label">Cutout</span>
-                <span class="spec-value" id="spec-cutout">55×55mm</span>
+                <span class="spec-value" id="spec-cutout">-</span>
               </div>
               <div class="spec-row">
                 <span class="spec-label">Color Temperature</span>
@@ -415,7 +410,7 @@
               </div>
               <div class="spec-row">
                 <span class="spec-label">Beam Angle</span>
-                <span class="spec-value" id="spec-angle">15° / 24° / 36°</span>
+                <span class="spec-value" id="spec-angle">-</span>
               </div>
               <div class="spec-row">
                 <span class="spec-label">Appearance</span>
@@ -460,25 +455,18 @@ const allProductSpecs = {
     }
   },
   'BD5002': {
-    '55': {
-      code: 'BD5002-55',
-      power: '6W',
-      dimensions: '62×62×H75mm',
-      cutout: '55×55mm',
-      angle: '15° / 24° / 36°'
-    },
     '75': {
       code: 'BD5002-75',
-      power: '12W',
-      dimensions: '85×85×H89mm',
-      cutout: '75×75mm',
-      angle: '60°'
+      power: '2*12W',
+      dimensions: '158×85×H89mm',
+      cutout: '148×75mm',
+      angle: '15° / 24° / 36°'
     },
     '95': {
       code: 'BD5002-95',
-      power: '20W',
-      dimensions: '104×104×H115mm',
-      cutout: '95×95mm',
+      power: '2*20W',
+      dimensions: '196×104×H115mm',
+      cutout: '188×95mm',
       angle: '15° / 24° / 36°'
     }
   }
@@ -487,9 +475,40 @@ const allProductSpecs = {
 // Get current product specs
 const productSpecs = allProductSpecs[productSeries] || allProductSpecs['BD5001'];
 
+// Get available models for current product
+const availableModels = Object.keys(productSpecs);
+
 // Current selection state
-let currentModel = '55';
+let currentModel = availableModels[0]; // First available model
 let currentFrame = 'with';
+
+// Initialize dropdown options
+function initializeDropdown() {
+  const select = document.getElementById('modelSelect');
+  select.innerHTML = ''; // Clear existing options
+  
+  availableModels.forEach(model => {
+    // With Frame option
+    const optionWith = document.createElement('option');
+    optionWith.value = `${model}-with`;
+    optionWith.textContent = `${productSeries}-${model} (With Frame)`;
+    select.appendChild(optionWith);
+    
+    // Frameless option
+    const optionWithout = document.createElement('option');
+    optionWithout.value = `${model}-without`;
+    optionWithout.textContent = `${productSeries}-${model} (Frameless)`;
+    select.appendChild(optionWithout);
+  });
+  
+  // Add change event listener
+  select.addEventListener('change', function() {
+    selectModelFromDropdown(this.value);
+  });
+  
+  // Initialize display
+  updateProductDisplay();
+}
 
 // Dropdown selection function
 function selectModelFromDropdown(value) {
@@ -517,5 +536,8 @@ function updateProductDisplay() {
   document.getElementById('spec-cutout').textContent = specs.cutout;
   document.getElementById('spec-angle').textContent = specs.angle;
 }
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initializeDropdown);
 </script>
 {{ end }}
