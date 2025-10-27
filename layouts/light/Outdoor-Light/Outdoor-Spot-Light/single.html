@@ -356,13 +356,13 @@
 </style>
 
 <div class="product-detail-page">
-  <!-- 面包屑导航 -->
+  <!-- Breadcrumb Navigation -->
   <div class="breadcrumb">
     <div class="container mx-auto px-4">
       <nav class="flex items-center text-sm">
-        <a href="/" class="breadcrumb-item">首页</a>
+        <a href="/" class="breadcrumb-item">Home</a>
         <span class="breadcrumb-separator">/</span>
-        <a href="/outdoor-light/" class="breadcrumb-item">户外灯具</a>
+        <a href="/outdoor-light/" class="breadcrumb-item">Outdoor Lighting</a>
         <span class="breadcrumb-separator">/</span>
         <span class="breadcrumb-item text-gray-900">{{ .Title }}</span>
       </nav>
@@ -370,96 +370,96 @@
   </div>
 
   <div class="container mx-auto px-4">
-    <!-- 产品主体 -->
+    <!-- Product Main Section -->
     <div class="product-main">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        <!-- 左栏：产品图片画廊 -->
+        <!-- Left Column: Product Gallery -->
         <div class="product-gallery">
           <img id="mainImage" src="/light/Outdoor Light/Outdoor Spot Light/OD5001-34 3.png" alt="{{ .Title }}" class="main-image">
           <div class="thumbnail-gallery">
-            <img src="/light/Outdoor Light/Outdoor Spot Light/OD5001-34 3.png" alt="主视图" class="thumbnail active" onclick="changeMainImage(this)">
-            <img src="/light/Outdoor Light/Outdoor Spot Light/OD5002-2.png" alt="侧视图" class="thumbnail" onclick="changeMainImage(this)">
-            <img src="/light/Outdoor Light/Outdoor Spot Light/OD5002-9.png" alt="细节图" class="thumbnail" onclick="changeMainImage(this)">
+            <img src="/light/Outdoor Light/Outdoor Spot Light/OD5001-34 3.png" alt="Main View" class="thumbnail active" onclick="changeMainImage(this)">
+            <img src="/light/Outdoor Light/Outdoor Spot Light/OD5002-2.png" alt="Side View" class="thumbnail" onclick="changeMainImage(this)">
+            <img src="/light/Outdoor Light/Outdoor Spot Light/OD5002-9.png" alt="Detail View" class="thumbnail" onclick="changeMainImage(this)">
           </div>
         </div>
 
-        <!-- 右栏：产品信息 -->
+        <!-- Right Column: Product Information -->
         <div class="product-info">
           <h1 class="product-title">{{ .Title }}</h1>
-          <p class="product-type">户外射灯</p>
+          <p class="product-type">Outdoor Spot Light</p>
 
-          <!-- 版本选择器 -->
+          <!-- Variant Selector -->
           <div class="variant-selector">
-            <label class="variant-label">选择版本</label>
+            <label class="variant-label">Select Variant</label>
             <div class="variant-options">
-              <div class="variant-option active" onclick="selectVariant(this)">哑光金</div>
-              <div class="variant-option" onclick="selectVariant(this)">渐变白</div>
-              <div class="variant-option" onclick="selectVariant(this)">经典黑</div>
+              <div class="variant-option active" onclick="selectVariant(this)">Matte Gold</div>
+              <div class="variant-option" onclick="selectVariant(this)">Gradient White</div>
+              <div class="variant-option" onclick="selectVariant(this)">Classic Black</div>
             </div>
           </div>
 
-          <!-- 信息切换组件 -->
+          <!-- Information Tabs -->
           <div class="info-tabs">
             <div class="tab-nav">
-              <button class="tab-button active" onclick="switchTab(this, 'specs')">技术规格</button>
-              <button class="tab-button" onclick="switchTab(this, 'drawing')">技术图纸</button>
+              <button class="tab-button active" onclick="switchTab(this, 'specs')">Technical Specifications</button>
+              <button class="tab-button" onclick="switchTab(this, 'drawing')">Technical Drawing</button>
             </div>
 
-            <!-- 技术规格标签页 -->
+            <!-- Technical Specifications Tab -->
             <div id="specs" class="tab-content active">
               <div class="specs-grid">
                 <div class="spec-item">
-                  <span class="spec-label">产品代码</span>
+                  <span class="spec-label">Product Code</span>
                   <span class="spec-value">OD5001-34-3</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">颜色</span>
-                  <span class="spec-value">哑光金/渐变白</span>
+                  <span class="spec-label">Color</span>
+                  <span class="spec-value">Matte Gold/Gradient White</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">光源</span>
+                  <span class="spec-label">Light Source</span>
                   <span class="spec-value">LED</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">电源</span>
+                  <span class="spec-label">Power Supply</span>
                   <span class="spec-value">220V AC</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">调光器</span>
-                  <span class="spec-value">支持</span>
+                  <span class="spec-label">Dimmer</span>
+                  <span class="spec-value">Supported</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">防护等级</span>
+                  <span class="spec-label">IP Rating</span>
                   <span class="spec-value">IP65</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">功率</span>
+                  <span class="spec-label">Power</span>
                   <span class="spec-value">34W</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">色温</span>
+                  <span class="spec-label">Color Temperature</span>
                   <span class="spec-value">3000K-6500K</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">材质</span>
-                  <span class="spec-value">铝合金</span>
+                  <span class="spec-label">Material</span>
+                  <span class="spec-value">Aluminum Alloy</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">尺寸</span>
+                  <span class="spec-label">Dimensions</span>
                   <span class="spec-value">200×150×100mm</span>
                 </div>
               </div>
             </div>
 
-            <!-- 技术图纸标签页 -->
+            <!-- Technical Drawing Tab -->
             <div id="drawing" class="tab-content">
               <div class="technical-drawing">
-                <p class="text-gray-500 mb-4">技术图纸</p>
+                <p class="text-gray-500 mb-4">Technical Drawing</p>
                 <div class="bg-white p-8 rounded-lg border-2 border-dashed border-gray-300">
                   <svg class="w-full h-64 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
                   </svg>
-                  <p class="text-sm text-gray-500 mt-2">工程图纸预留区域</p>
+                  <p class="text-sm text-gray-500 mt-2">Engineering Drawing Area</p>
                 </div>
               </div>
             </div>
@@ -468,88 +468,41 @@
       </div>
     </div>
 
-    <!-- 联系信息 -->
-    <div class="contact-section">
-      <h3 class="contact-title">需要更多信息？</h3>
-      <p class="text-amber-800 mb-4">我们的专业团队随时为您提供产品咨询和技术支持</p>
-      <div class="contact-buttons">
-        <a href="tel:+86-13925362921" class="contact-btn primary">
-          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-          </svg>
-          电话咨询
-        </a>
-        <a href="mailto:Miles@smartereck.com" class="contact-btn secondary">
-          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-          </svg>
-          邮件咨询
-        </a>
-      </div>
-    </div>
-
-    <!-- 同系列其他产品 -->
-    <div class="related-products">
-      <h2 class="related-title">同系列其他产品</h2>
-      <div class="products-grid">
-        <div class="product-card" onclick="window.location.href='/light/Outdoor-Light/Outdoor-Spot-Light/OD5002-2/'">
-          <img src="/light/Outdoor Light/Outdoor Spot Light/OD5002-2.png" alt="OD5002-2" class="product-card-image">
-          <div class="product-card-info">
-            <h3 class="product-card-title">OD5002-2</h3>
-            <p class="product-card-type">户外射灯</p>
-          </div>
-        </div>
-        <div class="product-card" onclick="window.location.href='/light/Outdoor-Light/Outdoor-Spot-Light/OD5002-9/'">
-          <img src="/light/Outdoor Light/Outdoor Spot Light/OD5002-9.png" alt="OD5002-9" class="product-card-image">
-          <div class="product-card-info">
-            <h3 class="product-card-title">OD5002-9</h3>
-            <p class="product-card-type">户外射灯</p>
-          </div>
-        </div>
-        <div class="product-card" onclick="window.location.href='/outdoor-light/'">
-          <img src="/light/Outdoor Light/Surface-Mounted Light/OD3001-150.jpg" alt="查看更多" class="product-card-image">
-          <div class="product-card-info">
-            <h3 class="product-card-title">查看更多产品</h3>
-            <p class="product-card-type">户外灯具系列</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
 <script>
-// 图片切换功能
+// Image switching function
 function changeMainImage(thumbnail) {
   const mainImage = document.getElementById('mainImage');
   const thumbnails = document.querySelectorAll('.thumbnail');
   
-  // 更新主图
+  // Update main image
   mainImage.src = thumbnail.src;
   mainImage.alt = thumbnail.alt;
   
-  // 更新缩略图状态
+  // Update thumbnail status
   thumbnails.forEach(thumb => thumb.classList.remove('active'));
   thumbnail.classList.add('active');
 }
 
-// 版本选择功能
+// Variant selection function
 function selectVariant(option) {
   const options = document.querySelectorAll('.variant-option');
   options.forEach(opt => opt.classList.remove('active'));
   option.classList.add('active');
 }
 
-// 标签页切换功能
+// Tab switching function
 function switchTab(button, tabId) {
   const buttons = document.querySelectorAll('.tab-button');
   const contents = document.querySelectorAll('.tab-content');
   
-  // 移除所有活动状态
+  // Remove all active states
   buttons.forEach(btn => btn.classList.remove('active'));
   contents.forEach(content => content.classList.remove('active'));
   
-  // 添加活动状态
+  // Add active state
   button.classList.add('active');
   document.getElementById(tabId).classList.add('active');
 }
