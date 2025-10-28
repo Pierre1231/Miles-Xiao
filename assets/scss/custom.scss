@@ -140,3 +140,66 @@
 #solutions .cta-image-paragraph-content p:last-child {
   margin-bottom: 0;
 }
+
+/* ================================
+   📱 Mobile Navbar Optimization
+   ================================ */
+@media (max-width: 768px) {
+  /* 导航栏容器优化 */
+  header.hb-navbar {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  /* Logo尺寸调整 */
+  .navbar-brand img {
+    max-height: 2.5rem !important;
+    width: auto !important;
+  }
+  
+  /* 搜索按钮和Get Started按钮容器 */
+  .navbar-nav {
+    gap: 0.5rem !important;
+  }
+  
+  /* Get Started按钮优化 */
+  .navbar-nav .btn,
+  .navbar-nav a[href*="templates"] {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap !important;
+  }
+  
+  /* 搜索图标按钮优化 */
+  .navbar-nav button,
+  .navbar-nav .nav-link {
+    padding: 0.4rem !important;
+    min-width: auto !important;
+  }
+  
+  /* 汉堡菜单按钮 */
+  .navbar-toggler {
+    padding: 0.4rem 0.6rem !important;
+    margin-left: 0.5rem !important;
+  }
+}
+
+/* 超小屏幕（iPhone SE等） */
+@media (max-width: 375px) {
+  header.hb-navbar {
+    padding: 0.5rem 0.5rem !important;
+  }
+  
+  .navbar-brand img {
+    max-height: 2rem !important;
+  }
+  
+  .navbar-nav .btn,
+  .navbar-nav a[href*="templates"] {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .navbar-nav {
+    gap: 0.3rem !important;
+  }
+}
