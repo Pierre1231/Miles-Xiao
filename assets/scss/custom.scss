@@ -145,61 +145,128 @@
    📱 Mobile Navbar Optimization
    ================================ */
 @media (max-width: 768px) {
-  /* 导航栏容器优化 */
-  header.hb-navbar {
-    padding: 0.5rem 1rem !important;
+  /* 导航栏整体布局 */
+  header nav,
+  header .navbar,
+  .hb-navbar {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
   }
   
-  /* Logo尺寸调整 */
-  .navbar-brand img {
-    max-height: 2.5rem !important;
-    width: auto !important;
-  }
-  
-  /* 搜索按钮和Get Started按钮容器 */
-  .navbar-nav {
+  /* 导航栏Flex容器 */
+  header .container,
+  header .container-fluid,
+  .navbar > .container,
+  .navbar > .container-fluid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     gap: 0.5rem !important;
   }
   
-  /* Get Started按钮优化 */
-  .navbar-nav .btn,
-  .navbar-nav a[href*="templates"] {
-    padding: 0.4rem 0.8rem !important;
-    font-size: 0.85rem !important;
-    white-space: nowrap !important;
+  /* Logo品牌区域 */
+  .navbar-brand {
+    margin-right: 0.5rem !important;
+    padding: 0 !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
   }
   
-  /* 搜索图标按钮优化 */
-  .navbar-nav button,
-  .navbar-nav .nav-link {
-    padding: 0.4rem !important;
+  .navbar-brand img,
+  .navbar-brand svg {
+    max-height: 2.2rem !important;
+    height: 2.2rem !important;
+    width: auto !important;
+    object-fit: contain !important;
+  }
+  
+  /* 右侧导航项容器 */
+  .navbar-nav,
+  header .navbar-nav,
+  header nav > ul,
+  header nav > div:last-child {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* 搜索按钮 */
+  .navbar-nav li:has(button),
+  .navbar-nav > li > button,
+  header button[aria-label*="Search"],
+  header button[aria-label*="search"] {
+    padding: 0.35rem 0.45rem !important;
+    min-width: auto !important;
+    width: auto !important;
+    margin: 0 !important;
+  }
+  
+  /* Get Started按钮 */
+  .navbar-nav .btn,
+  .navbar-nav a.btn,
+  header a[href*="template"],
+  header .btn-primary {
+    padding: 0.35rem 0.7rem !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+    line-height: 1.3 !important;
     min-width: auto !important;
   }
   
   /* 汉堡菜单按钮 */
-  .navbar-toggler {
-    padding: 0.4rem 0.6rem !important;
-    margin-left: 0.5rem !important;
+  .navbar-toggler,
+  button.navbar-toggler,
+  header .navbar-toggler {
+    padding: 0.35rem 0.5rem !important;
+    margin-left: 0.3rem !important;
+    margin-right: 0 !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+  }
+  
+  /* 确保所有导航项不换行 */
+  .navbar-nav > li,
+  .navbar-nav > * {
+    flex-shrink: 0 !important;
   }
 }
 
-/* 超小屏幕（iPhone SE等） */
-@media (max-width: 375px) {
-  header.hb-navbar {
-    padding: 0.5rem 0.5rem !important;
+/* 超小屏幕优化（iPhone SE, 小米等） */
+@media (max-width: 390px) {
+  header nav,
+  .hb-navbar {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   
-  .navbar-brand img {
-    max-height: 2rem !important;
-  }
-  
-  .navbar-nav .btn,
-  .navbar-nav a[href*="templates"] {
-    padding: 0.3rem 0.6rem !important;
-    font-size: 0.75rem !important;
+  .navbar-brand img,
+  .navbar-brand svg {
+    max-height: 1.8rem !important;
+    height: 1.8rem !important;
   }
   
   .navbar-nav {
     gap: 0.3rem !important;
   }
+  
+  .navbar-nav .btn,
+  header a[href*="template"] {
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .navbar-nav li:has(button),
+  .navbar-nav > li > button {
+    padding: 0.3rem 0.35rem !important;
+  }
+  
+  .navbar-toggler {
+    padding: 0.3rem 0.4rem !important;
+  }
+}
 }
