@@ -23,7 +23,7 @@ sections:
       background:
         color: "#0b0f1a"
         image:
-          filename: "hero_pic1.png"
+          filename: "hero_pic2.png"
           filters:
             brightness: 0.55
             contrast: 1.05
@@ -50,7 +50,7 @@ sections:
       css_class: "bg-gray-100 dark:bg-gray-900"
       # Reduce spacing
       spacing:
-        padding: ["0.75rem", 0, "0.5rem", 0]
+        padding: ["0.25rem", 0, "0.25rem", 0]
         
   - block: cta-image-paragraph
     id: solutions
