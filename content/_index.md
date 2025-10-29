@@ -18,8 +18,8 @@ sections:
         display: flex !important;
         align-items: flex-end !important;
         justify-content: flex-start !important;
-        text-align: left !important;
-        padding: 4rem 6rem !important;
+        min-height: 70vh;
+        padding: 4rem 4rem !important;
       background:
         color: "#0b0f1a"
         image:
@@ -27,7 +27,7 @@ sections:
           filters:
             brightness: 0.55
             contrast: 1.05
-          size: contain
+          size: cover
           position: center
           parallax: false
 
