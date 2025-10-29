@@ -18,8 +18,8 @@ sections:
         display: flex !important;
         align-items: flex-end !important;
         justify-content: flex-start !important;
-        min-height: 70vh;
-        padding: 4rem 4rem !important;
+        min-height: 60vh;
+        padding: 2rem 2rem !important;
       background:
         color: "#0b0f1a"
         image:
