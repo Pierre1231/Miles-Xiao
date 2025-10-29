@@ -10,20 +10,16 @@ design:
 sections:
   - block: hero
     content:
-      title: 
-      text: SMARTER Lighting
+      title: "SMARTER Lighting"
     design:
-      css_class: "light"
-      text_color_light: false
+      css_class: "dark"
+      text_color_light: true
       css_style: |
         display: flex !important;
         align-items: flex-end !important;
         justify-content: flex-start !important;
         min-height: 60vh;
         padding: 2rem 2rem !important;
-        color: #000000 !important;
-        font-size: 10rem !important;
-        font-weight: normal !important;
       background:
         color: "#0b0f1a"
         image:
