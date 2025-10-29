@@ -15,6 +15,7 @@ sections:
       css_class: "dark"
       text_color_light: true
       css_style: |
+        display: flex !important;
         align-items: flex-end !important;
         justify-content: flex-start !important;
         text-align: left !important;
@@ -26,7 +27,7 @@ sections:
           filters:
             brightness: 0.55
             contrast: 1.05
-          size: cover
+          size: contain
           position: center
           parallax: false
 
