@@ -10,7 +10,7 @@ design:
 sections:
   - block: hero
     content:
-      title: "SMARTER Lighting"
+      title: 
       text: SMARTER Lighting
     design:
       css_class: "light"
@@ -22,7 +22,7 @@ sections:
         min-height: 60vh;
         padding: 2rem 2rem !important;
         color: #000000 !important;
-        font-size: 2rem !important;
+        font-size: 10rem !important;
         font-weight: normal !important;
       background:
         color: "#0b0f1a"
