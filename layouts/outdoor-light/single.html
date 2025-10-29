@@ -67,7 +67,7 @@
   position: sticky;
   top: 6rem;
   background: white;
-  padding: 0 2rem;
+  padding: 0 2rem 0 3rem;
 }
 
 .filter-header {
@@ -152,7 +152,7 @@
 
   <div class="container mx-auto px-4 py-8">
     
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
       <!-- 左侧过滤器 -->
       <aside class="lg:col-span-3">
         <div class="filter-sidebar">
@@ -191,7 +191,7 @@
       </aside>
 
       <!-- 右侧内容区 -->
-      <article class="lg:col-span-9 max-w-none" style="padding-right: 2rem;">
+      <article class="lg:col-span-9 max-w-none" style="padding-right: 3rem;">
         {{ .Content }}
       </article>
     </div>
