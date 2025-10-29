@@ -11,9 +11,6 @@ sections:
   - block: hero
     content:
       title: "SMARTER Lighting"
-      text: >
-        Illuminate the future with precision and innovation<br>
-        **Premium lighting solutions** for modern homes and smart businesses
     design:
       css_class: "dark"
       text_color_light: true
@@ -28,7 +25,7 @@ sections:
       background:
         color: "#0b0f1a"
         image:
-          filename: "BD1010 1.png"
+          filename: "hero_pic1.png"
           filters:
             brightness: 0.55
             contrast: 1.05
