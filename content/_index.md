@@ -62,7 +62,7 @@ sections:
           feature_icon: check
 
           # Upload image to `assets/media/` and reference the filename here
-          image: build-website.png
+          image: good_pic.png
 
 
     design:
