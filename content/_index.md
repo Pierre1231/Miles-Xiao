@@ -12,7 +12,7 @@ sections:
     content:
       title: "SMARTER Lighting"
     design:
-      css_class: "dark"
+      css_class: "light"
       text_color_light: false
       css_style: |
         display: flex !important;
