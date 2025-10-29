@@ -12,11 +12,13 @@ sections:
     content:
       title: "SMARTER Lighting"
       text: >
-        Illuminate the future with precision and innovation.<br>
-        **Premium lighting solutions** for modern homes and smart businesses.
+        Illuminate the future with precision and innovation<br>
+        **Premium lighting solutions** for modern homes and smart businesses
     design:
       css_class: "dark"
       text_color_light: true
+      columns: '1'
+      css_style: 'display: flex; align-items: flex-end; justify-content: flex-start; text-align: left; min-height: 600px;'
       background:
         color: "#0b0f1a"
         image:
