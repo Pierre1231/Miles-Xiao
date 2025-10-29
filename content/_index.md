@@ -11,6 +11,7 @@ sections:
   - block: hero
     content:
       title: "SMARTER Lighting"
+      text: SMARTER Lighting
     design:
       css_class: "light"
       text_color_light: false
