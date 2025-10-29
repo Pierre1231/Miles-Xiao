@@ -15,9 +15,3 @@ main:
   - parent: Product
     name: Outdoor Light
     url: outdoor-light/
-  - name: Resources
-    weight: 40
-    hasChildren: true
-  - parent: Resources
-    name: Blog
-    url: blog/
