@@ -17,19 +17,20 @@ html { scroll-behavior: smooth; }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 .gallery-item {
   text-align: center;
-  background: #f9f9f9;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background: white;
+  border-radius: 0;
+  padding: 0;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .gallery-item a {
@@ -44,20 +45,24 @@ html { scroll-behavior: smooth; }
 
 .gallery-item img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  height: 250px;
+  object-fit: contain;
   background-color: white;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="10" height="10" fill="white"/><rect x="10" y="10" width="10" height="10" fill="white"/></svg>');
+  padding: 1.5rem;
   transition: opacity 0.2s ease;
 }
 
 .gallery-item:hover img {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 .gallery-caption {
-  margin-top: 0.6rem;
-  font-size: 1rem;
-  color: #555;
+  margin: 0;
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #000000;
+  background: #fafafa;
+  border-top: 1px solid #e0e0e0;
 }
 
 /* 响应式设计 */

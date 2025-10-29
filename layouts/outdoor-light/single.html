@@ -82,7 +82,7 @@
       <nav class="flex items-center text-sm">
         <a href="/" class="breadcrumb-item">Home</a>
         <span class="breadcrumb-separator">/</span>
-        <a href="/outdoor-light/" class="breadcrumb-item">{{ .Title }}</a>
+        <span class="breadcrumb-item" style="color: #000000;">{{ .Title }}</span>
       </nav>
     </div>
   </div>
@@ -91,10 +91,25 @@
     <!-- Page Title -->
     <h1 class="category-title">{{ .Title }}</h1>
     
-    <!-- Content with Galleries -->
-    <article class="max-w-none">
-      {{ .Content }}
-    </article>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- 左侧目录 -->
+      <aside class="lg:col-span-3">
+        <div class="sticky top-24 p-4 rounded border border-slate-200 bg-white/70 backdrop-blur">
+          <h2 class="font-semibold mb-3">Category</h2>
+          <nav class="space-y-2">
+            <a href="#Outdoor-Spot-Light" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Outdoor Spot Light</a>
+            <a href="#Surface-Mounted-Light" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Surface-Mounted Light</a>
+            <a href="#Wall-Light" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Wall Light</a>
+            <a href="#Yard-Light" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Yard Light</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- 右侧内容区 -->
+      <article class="lg:col-span-9 max-w-none">
+        {{ .Content }}
+      </article>
+    </div>
   </div>
 </div>
 {{ end }}
