@@ -1,5 +1,5 @@
 ---
-title: "Indoor Light"
+title: ""
 ---
 
 {{< gallery path="light/Indoor Light/Grid Light" title="Grid Light" show_title="true" >}}

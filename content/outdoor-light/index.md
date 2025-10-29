@@ -1,5 +1,5 @@
 ---
-title: "Outdoor Light"
+title: ""
 ---
 
 {{< gallery path="light/Outdoor Light/Outdoor Spot Light" title="Outdoor Spot Light" show_title="true" >}}
