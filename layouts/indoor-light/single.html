@@ -85,11 +85,22 @@
 }
 
 .filter-item {
-  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+  padding: 0 1rem;
 }
 
-.filter-item:last-child {
-  border-bottom: none;
+.filter-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.filter-item:last-child::after {
+  display: none;
 }
 
 .filter-item-header {
