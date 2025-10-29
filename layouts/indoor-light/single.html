@@ -62,6 +62,77 @@
   letter-spacing: -0.01em;
 }
 
+/* Filter Sidebar Styles */
+.filter-sidebar {
+  position: sticky;
+  top: 6rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.25rem;
+  border-bottom: 2px solid #000000;
+}
+
+.filter-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.filter-icon {
+  width: 24px;
+  height: 24px;
+  color: #000000;
+}
+
+.filter-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-item:last-child {
+  border-bottom: none;
+}
+
+.filter-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.filter-item-header:hover {
+  background-color: #f9f9f9;
+}
+
+.filter-item-title {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+}
+
+.filter-item-icon {
+  width: 20px;
+  height: 20px;
+  color: #ef4444;
+  transition: transform 0.2s ease;
+}
+
+.filter-item-header.active .filter-item-icon {
+  transform: rotate(45deg);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .category-title {
@@ -87,19 +158,66 @@
     </div>
   </div>
 
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 py-8">
     
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <!-- 左侧目录 -->
+      <!-- 左侧过滤器 -->
       <aside class="lg:col-span-3">
-        <div class="sticky top-24 p-4 rounded border border-slate-200 bg-white/70 backdrop-blur">
-          <h2 class="font-semibold mb-3">Category</h2>
-          <nav class="space-y-2">
-            <a href="#Grid-Light" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Grid Light</a>
-            <a href="#Mini-Spot-Light" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Mini Spot Light</a>
-            <a href="#Recessed-Spot-Light" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Recessed Spot Light</a>
-            <a href="#Surface-Mounted-Spot-Light" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Surface-Mounted Spot Light</a>
-            <a href="#Magnetic-Track-Lights" class="block py-2 px-3 rounded hover:bg-gray-100 text-gray-700 hover:text-black transition-colors duration-200">Magnetic Track Lights</a>
+        <div class="filter-sidebar">
+          <!-- Filter Header -->
+          <div class="filter-header">
+            <h2 class="filter-title">Filter</h2>
+            <svg class="filter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+            </svg>
+          </div>
+          
+          <!-- Filter Items -->
+          <nav>
+            <div class="filter-item">
+              <a href="#Grid-Light" class="filter-item-header">
+                <span class="filter-item-title">Grid Light</span>
+                <svg class="filter-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </a>
+            </div>
+            
+            <div class="filter-item">
+              <a href="#Mini-Spot-Light" class="filter-item-header">
+                <span class="filter-item-title">Mini Spot Light</span>
+                <svg class="filter-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </a>
+            </div>
+            
+            <div class="filter-item">
+              <a href="#Recessed-Spot-Light" class="filter-item-header">
+                <span class="filter-item-title">Recessed Spot Light</span>
+                <svg class="filter-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </a>
+            </div>
+            
+            <div class="filter-item">
+              <a href="#Surface-Mounted-Spot-Light" class="filter-item-header">
+                <span class="filter-item-title">Surface-Mounted Spot Light</span>
+                <svg class="filter-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </a>
+            </div>
+            
+            <div class="filter-item">
+              <a href="#Magnetic-Track-Lights" class="filter-item-header">
+                <span class="filter-item-title">Magnetic Track Lights</span>
+                <svg class="filter-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </a>
+            </div>
           </nav>
         </div>
       </aside>
