@@ -422,6 +422,28 @@ const allProductSpecs = {
       image: 'BD3002-95.png',
       hasFrameless: true
     }
+  },
+  'BD3006': {
+    '140': {
+      code: 'BD3006-140',
+      power: '5*2W',
+      voltage: 'AC 220V',
+      dimensions: '147×45×50mm',
+      cutout: '140×37mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD3006-140.jpg',
+      hasFrameless: true
+    },
+    '272': {
+      code: 'BD3006-272',
+      power: '10*2W',
+      voltage: 'AC 220V',
+      dimensions: '279×45×50mm',
+      cutout: '272×37mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD3006-272.jpg',
+      hasFrameless: true
+    }
   }
 };
 
@@ -436,7 +458,7 @@ let currentModel = availableModels[0];
 let currentFrame = 'with';
 
 // Check if current series supports frameless options
-const supportsFrameless = productSeries === 'BD3002';
+const supportsFrameless = productSeries === 'BD3002' || productSeries === 'BD3006';
 
 // Initialize dropdown options
 function initializeDropdown() {
@@ -495,7 +517,8 @@ function selectModelFromDropdown(value) {
 function updateProductDisplay() {
   const specs = productSpecs[currentModel];
   const frameSuffix = (supportsFrameless && currentFrame === 'without') ? 'A' : '';
-  const imagePath = `/light/Indoor Light/Recessed Light/${specs.code}${frameSuffix}.png`;
+  const imageExtension = specs.image.split('.').pop();
+  const imagePath = `/light/Indoor Light/Recessed Light/${specs.code}${frameSuffix}.${imageExtension}`;
   
   // Update main image
   document.getElementById('mainImage').src = imagePath;
