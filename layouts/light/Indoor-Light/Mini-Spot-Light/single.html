@@ -255,7 +255,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
         <!-- Left Column: Product Gallery -->
         <div class="product-gallery">
-          <img id="mainImage" src="/light/Indoor Light/Mini Spot Light/BD2001-15.jpg" alt="{{ .Title }}" class="main-image">
+          <img id="mainImage" src="" alt="{{ .Title }}" class="main-image">
         </div>
 
         <!-- Right Column: Product Information -->
@@ -283,7 +283,7 @@
               </div>
               <div class="spec-row">
                 <span class="spec-label">Voltage</span>
-                <span class="spec-value">DC 24V</span>
+                <span class="spec-value" id="spec-voltage">-</span>
               </div>
               <div class="spec-row">
                 <span class="spec-label">Power</span>
@@ -303,7 +303,7 @@
               </div>
               <div class="spec-row">
                 <span class="spec-label">Beam Angle</span>
-                <span class="spec-value">60°</span>
+                <span class="spec-value" id="spec-angle">-</span>
               </div>
               <div class="spec-row">
                 <span class="spec-label">Appearance</span>
@@ -322,22 +322,46 @@
 // Get product series name from page title
 const productSeries = '{{ .Title }}';
 
-// Product specifications database for BD2001 series
+// Product specifications database for Mini Spot Light series
 const allProductSpecs = {
   'BD2001': {
     '15': {
       code: 'BD2001-15',
       power: '1W',
+      voltage: 'DC 24V',
       dimensions: 'Ø20×H20mm',
       cutout: 'Ø15mm',
+      angle: '60°',
       image: 'BD2001-15.jpg'
     },
     '25': {
       code: 'BD2001-25',
       power: '3W',
+      voltage: 'DC 24V',
       dimensions: 'Ø30×H58mm',
       cutout: 'Ø25mm',
+      angle: '60°',
       image: 'BD2001-25.jpg'
+    }
+  },
+  'BD2002': {
+    'A-35': {
+      code: 'BD2002A-35',
+      power: '1.5W',
+      voltage: 'AC 220V',
+      dimensions: 'Ø42×H28mm',
+      cutout: 'Ø35mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD2002A-35.png'
+    },
+    'C-35': {
+      code: 'BD2002C-35',
+      power: '3W',
+      voltage: 'AC 220V',
+      dimensions: 'Ø42×H44mm',
+      cutout: 'Ø35mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD2002C-35.png'
     }
   }
 };
@@ -357,9 +381,10 @@ function initializeDropdown() {
   select.innerHTML = ''; // Clear existing options
   
   availableModels.forEach(model => {
+    const specs = productSpecs[model];
     const option = document.createElement('option');
     option.value = model;
-    option.textContent = `${productSeries}-${model}`;
+    option.textContent = specs.code;
     select.appendChild(option);
   });
   
@@ -390,9 +415,11 @@ function updateProductDisplay() {
   
   // Update specifications
   document.getElementById('spec-code').textContent = specs.code;
+  document.getElementById('spec-voltage').textContent = specs.voltage;
   document.getElementById('spec-power').textContent = specs.power;
   document.getElementById('spec-dimensions').textContent = specs.dimensions;
   document.getElementById('spec-cutout').textContent = specs.cutout;
+  document.getElementById('spec-angle').textContent = specs.angle;
 }
 
 // Initialize on page load
