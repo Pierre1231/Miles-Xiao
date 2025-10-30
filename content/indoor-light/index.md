@@ -10,4 +10,4 @@ title: ""
 
 {{< gallery path="light/Indoor Light/Surface-Mounted Spot Light" title="Surface-Mounted Spot Light" show_title="true" >}}
 
-{{< gallery path="light/Indoor Light/Magnetic Track Lights" title="Magnetic Track Lights" show_title="true" >}}
+{{< gallery path="light/Indoor Light/Magnetic Track Light" title="Magnetic Track Light" show_title="true" >}}
