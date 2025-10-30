@@ -293,6 +293,18 @@
                 <span class="spec-label">Body Dimensions</span>
                 <span class="spec-value" id="spec-dimensions">-</span>
               </div>
+              <div class="spec-row" id="spec-row-color-temp" style="display: none;">
+                <span class="spec-label">Color Temperature</span>
+                <span class="spec-value">2700K / 3000K / 3500K / 4000K</span>
+              </div>
+              <div class="spec-row" id="spec-row-angle" style="display: none;">
+                <span class="spec-label">Beam Angle</span>
+                <span class="spec-value" id="spec-angle">-</span>
+              </div>
+              <div class="spec-row" id="spec-row-appearance" style="display: none;">
+                <span class="spec-label">Appearance</span>
+                <span class="spec-value">Matte White / Matte Black</span>
+              </div>
               <div class="spec-row">
                 <span class="spec-label">Protection Level</span>
                 <span class="spec-value">IP65</span>
@@ -318,14 +330,47 @@ const allProductSpecs = {
       power: '15W',
       voltage: 'AC 220V',
       dimensions: 'Ø80×H115mm',
-      image: 'OD3001-80.jpg'
+      image: 'OD3001-80.jpg',
+      hasAngle: false
     },
     '150': {
       code: 'OD3001-150',
       power: '35W',
       voltage: 'AC 220V',
       dimensions: 'Ø150×H200mm',
-      image: 'OD3001-150.jpg'
+      image: 'OD3001-150.jpg',
+      hasAngle: false
+    }
+  },
+  'OD3002': {
+    '80': {
+      code: 'OD3002-80',
+      power: '10W',
+      voltage: 'AC 220V',
+      dimensions: 'Ø80×120×H115mm',
+      angle: '15° / 24° / 36°',
+      image: 'OD3002-80.jpg',
+      hasAngle: true
+    },
+    '150': {
+      code: 'OD3002-150',
+      power: '30W',
+      voltage: 'AC 220V',
+      dimensions: 'Ø150×205×H180mm',
+      angle: '15° / 24° / 36°',
+      image: 'OD3002-150.jpg',
+      hasAngle: true
+    }
+  },
+  'OD3003': {
+    '80': {
+      code: 'OD3003-80',
+      power: '2*8W',
+      voltage: 'AC 220V',
+      dimensions: 'Ø80×120×H200mm',
+      angle: '15° / 24° / 36°',
+      image: 'OD3003.jpg',
+      hasAngle: true
     }
   }
 };
@@ -383,6 +428,18 @@ function updateProductDisplay() {
   document.getElementById('spec-voltage').textContent = specs.voltage;
   document.getElementById('spec-power').textContent = specs.power;
   document.getElementById('spec-dimensions').textContent = specs.dimensions;
+  
+  // Show/hide angle-related specs based on series
+  if (specs.hasAngle) {
+    document.getElementById('spec-row-color-temp').style.display = '';
+    document.getElementById('spec-row-angle').style.display = '';
+    document.getElementById('spec-row-appearance').style.display = '';
+    document.getElementById('spec-angle').textContent = specs.angle;
+  } else {
+    document.getElementById('spec-row-color-temp').style.display = 'none';
+    document.getElementById('spec-row-angle').style.display = 'none';
+    document.getElementById('spec-row-appearance').style.display = 'none';
+  }
 }
 
 // Initialize on page load
