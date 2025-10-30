@@ -2,334 +2,216 @@
 <style>
 /* 产品详情页专用样式 */
 .product-detail-page {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #ffffff;
   min-height: 100vh;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .breadcrumb {
   background: white;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
 }
 
 .breadcrumb-item {
-  color: #6b7280;
+  color: #757575;
   text-decoration: none;
   transition: color 0.2s ease;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
 }
 
 .breadcrumb-item:hover {
-  color: #d97706;
+  color: #000000;
 }
 
 .breadcrumb-separator {
-  color: #d1d5db;
+  color: #bdbdbd;
   margin: 0 0.5rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .product-main {
   background: white;
-  margin: 2rem 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
   overflow: hidden;
 }
 
 .product-gallery {
   position: relative;
-  background: #f9fafb;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
 }
 
 .main-image {
   width: 100%;
-  height: 500px;
+  height: 600px;
   object-fit: contain;
   background: white;
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
-}
-
-.main-image:hover {
-  transform: scale(1.02);
-}
-
-.thumbnail-gallery {
-  display: flex;
-  gap: 0.5rem;
-  padding: 1rem;
-  overflow-x: auto;
-  background: white;
-  border-top: 1px solid #e5e7eb;
-}
-
-.thumbnail {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
-  background: white;
-}
-
-.thumbnail:hover,
-.thumbnail.active {
-  border-color: #d97706;
-  transform: scale(1.05);
-}
-
-.product-info {
   padding: 2rem;
 }
 
+.thumbnail-gallery {
+  display: none;
+}
+
+.product-info {
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0;
+}
+
 .product-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111827;
-  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0;
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .product-type {
-  color: #6b7280;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  color: #757575;
+  font-size: 0.8125rem;
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 .variant-selector {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.875rem;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.5rem;
+  align-items: center;
 }
 
 .variant-label {
   font-weight: 600;
-  color: #374151;
-  margin-bottom: 0.75rem;
+  color: #000000;
+  margin-bottom: 0;
   display: block;
+  font-size: 0.9375rem;
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
-.variant-options {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.variant-option {
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  background: white;
+.variant-select {
+  width: auto;
+  max-width: 240px;
+  padding: 0.203rem 1.75rem 0.203rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 10px;
+  border: 1px solid #000000;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 500;
-  color: #374151;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: all 0.15s ease;
+  line-height: 1.4;
+  height: calc(0.8125rem * 1.4 * 1.5);
 }
 
-.variant-option:hover {
-  border-color: #d97706;
-  background: #fef3c7;
+.variant-select:hover {
+  background-color: #2a2a2a;
 }
 
-.variant-option.active {
-  border-color: #d97706;
-  background: #d97706;
-  color: white;
+.variant-select:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
-.info-tabs {
-  margin-top: 2rem;
+.variant-select option {
+  background-color: #000000;
+  color: #ffffff;
 }
 
-.tab-nav {
-  display: flex;
-  border-bottom: 2px solid #e5e7eb;
-  margin-bottom: 1.5rem;
+.specs-section {
+  margin-top: 0;
+  padding-top: 0.875rem;
 }
 
-.tab-button {
-  padding: 1rem 1.5rem;
-  background: none;
-  border: none;
+.specs-title {
+  font-size: 0.9375rem;
   font-weight: 600;
-  color: #6b7280;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-bottom: 3px solid transparent;
-  position: relative;
+  color: #000000;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
-.tab-button:hover {
-  color: #374151;
-  background: #f9fafb;
-}
-
-.tab-button.active {
-  color: #d97706;
-  border-bottom-color: #d97706;
-}
-
-.tab-content {
-  display: none;
-  animation: fadeIn 0.3s ease;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.specs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.spec-item {
+.specs-list {
   display: flex;
-  justify-content: space-between;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #f3f4f6;
+  flex-direction: column;
+  gap: 0;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.spec-row:last-child {
+  border-bottom: none;
 }
 
 .spec-label {
-  font-weight: 600;
-  color: #374151;
+  font-weight: 400;
+  color: #757575;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  line-height: 1.4;
 }
 
 .spec-value {
-  color: #6b7280;
-  text-align: right;
+  color: #000000;
+  text-align: left;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
-.technical-drawing {
-  text-align: center;
-  padding: 2rem;
-  background: #f9fafb;
-  border-radius: 8px;
-  border: 2px dashed #d1d5db;
-}
-
-.contact-section {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  margin: 2rem 0;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-}
-
-.contact-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #92400e;
-  margin-bottom: 1rem;
-}
-
-.contact-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.contact-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.contact-btn.primary {
-  background: #d97706;
-  color: white;
-}
-
-.contact-btn.primary:hover {
-  background: #b45309;
-  transform: translateY(-2px);
-}
-
-.contact-btn.secondary {
-  background: white;
-  color: #374151;
-  border: 2px solid #d97706;
-}
-
-.contact-btn.secondary:hover {
-  background: #d97706;
-  color: white;
-}
-
-.related-products {
-  margin: 3rem 0;
-}
-
-.related-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #111827;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.product-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.product-card-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  background: white;
-}
-
-.product-card-info {
-  padding: 1.5rem;
-}
-
-.product-card-title {
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 0.5rem;
-}
-
-.product-card-type {
-  color: #6b7280;
-  font-size: 0.9rem;
-}
-
-/* 响应式设计 */
+/* Responsive Design */
 @media (max-width: 768px) {
   .product-main {
-    margin: 1rem 0;
-    border-radius: 0;
+    margin: 0;
   }
   
   .product-info {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
   }
   
   .product-title {
@@ -337,20 +219,18 @@
   }
   
   .main-image {
-    height: 300px;
+    height: 400px;
+    padding: 1rem;
+  }
+  
+  .spec-row {
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
   }
   
   .variant-options {
-    flex-direction: column;
-  }
-  
-  .contact-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .specs-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 </style>
@@ -370,95 +250,64 @@
   </div>
 
   <div class="container mx-auto px-4">
-    <!-- Product Main Section -->
+    <!-- 产品主体 -->
     <div class="product-main">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
         <!-- Left Column: Product Gallery -->
         <div class="product-gallery">
           <img id="mainImage" src="/light/Indoor Light/Mini Spot Light/BD2001-15.jpg" alt="{{ .Title }}" class="main-image">
-          <div class="thumbnail-gallery">
-            <img src="/light/Indoor Light/Mini Spot Light/BD2001-15.jpg" alt="Main View" class="thumbnail active" onclick="changeMainImage(this)">
-            <img src="/light/Indoor Light/Mini Spot Light/BD2001-25.jpg" alt="Side View" class="thumbnail" onclick="changeMainImage(this)">
-          </div>
         </div>
 
         <!-- Right Column: Product Information -->
         <div class="product-info">
-          <h1 class="product-title">{{ .Title }}</h1>
-          <p class="product-type">Mini Spot Light</p>
-
-          <!-- Variant Selector -->
-          <div class="variant-selector">
-            <label class="variant-label">Select Variant</label>
-            <div class="variant-options">
-              <div class="variant-option active" onclick="selectVariant(this)">15W</div>
-              <div class="variant-option" onclick="selectVariant(this)">25W</div>
-            </div>
+          <div class="title-row">
+            <h1 class="product-title">{{ .Title }} Series</h1>
+            <span class="product-type">Mini Spot Light</span>
           </div>
 
-          <!-- Information Tabs -->
-          <div class="info-tabs">
-            <div class="tab-nav">
-              <button class="tab-button active" onclick="switchTab(this, 'specs')">Technical Specifications</button>
-              <button class="tab-button" onclick="switchTab(this, 'drawing')">Technical Drawing</button>
-            </div>
+          <!-- Model Selector -->
+          <div class="variant-selector">
+            <label class="variant-label">Select Model</label>
+            <select id="modelSelect" class="variant-select">
+              <!-- Options will be populated by JavaScript -->
+            </select>
+          </div>
 
-            <!-- Technical Specifications Tab -->
-            <div id="specs" class="tab-content active">
-              <div class="specs-grid">
-                <div class="spec-item">
-                  <span class="spec-label">Product Code</span>
-                  <span class="spec-value">BD2001-15</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Color</span>
-                  <span class="spec-value">白色/黑色</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Light Source</span>
-                  <span class="spec-value">LED</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Power Supply</span>
-                  <span class="spec-value">220V AC</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Dimmer</span>
-                  <span class="spec-value">支持</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">IP Rating</span>
-                  <span class="spec-value">IP20</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Power</span>
-                  <span class="spec-value">15W</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Color Temperature</span>
-                  <span class="spec-value">3000K-6500K</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Material</span>
-                  <span class="spec-value">铝合金</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Dimensions</span>
-                  <span class="spec-value">80×80×50mm</span>
-                </div>
+          <!-- Specifications -->
+          <div class="specs-section">
+            <h3 class="specs-title">Specifications</h3>
+            <div class="specs-list">
+              <div class="spec-row">
+                <span class="spec-label">Product Code</span>
+                <span class="spec-value" id="spec-code">{{ .Title }}</span>
               </div>
-            </div>
-
-            <!-- Technical Drawing Tab -->
-            <div id="drawing" class="tab-content">
-              <div class="technical-drawing">
-                <p class="text-gray-500 mb-4">Technical Drawing</p>
-                <div class="bg-white p-8 rounded-lg border-2 border-dashed border-gray-300">
-                  <svg class="w-full h-64 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
-                  </svg>
-                  <p class="text-sm text-gray-500 mt-2">Engineering Drawing Area</p>
-                </div>
+              <div class="spec-row">
+                <span class="spec-label">Voltage</span>
+                <span class="spec-value">DC 24V</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Power</span>
+                <span class="spec-value" id="spec-power">-</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Body Dimensions</span>
+                <span class="spec-value" id="spec-dimensions">-</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Cutout</span>
+                <span class="spec-value" id="spec-cutout">-</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Color Temperature</span>
+                <span class="spec-value">2700K / 3000K / 3500K / 4000K</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Beam Angle</span>
+                <span class="spec-value">60°</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Appearance</span>
+                <span class="spec-value">Matte White / Matte Black</span>
               </div>
             </div>
           </div>
@@ -470,39 +319,83 @@
 </div>
 
 <script>
-// Image switching function
-function changeMainImage(thumbnail) {
-  const mainImage = document.getElementById('mainImage');
-  const thumbnails = document.querySelectorAll('.thumbnail');
+// Get product series name from page title
+const productSeries = '{{ .Title }}';
+
+// Product specifications database for BD2001 series
+const allProductSpecs = {
+  'BD2001': {
+    '15': {
+      code: 'BD2001-15',
+      power: '1W',
+      dimensions: 'Ø20×H20mm',
+      cutout: 'Ø15mm',
+      image: 'BD2001-15.jpg'
+    },
+    '25': {
+      code: 'BD2001-25',
+      power: '3W',
+      dimensions: 'Ø30×H58mm',
+      cutout: 'Ø25mm',
+      image: 'BD2001-25.jpg'
+    }
+  }
+};
+
+// Get current product specs
+const productSpecs = allProductSpecs[productSeries] || allProductSpecs['BD2001'];
+
+// Get available models for current product
+const availableModels = Object.keys(productSpecs);
+
+// Current selection state
+let currentModel = availableModels[0];
+
+// Initialize dropdown options
+function initializeDropdown() {
+  const select = document.getElementById('modelSelect');
+  select.innerHTML = ''; // Clear existing options
+  
+  availableModels.forEach(model => {
+    const option = document.createElement('option');
+    option.value = model;
+    option.textContent = `${productSeries}-${model}`;
+    select.appendChild(option);
+  });
+  
+  // Add change event listener
+  select.addEventListener('change', function() {
+    selectModelFromDropdown(this.value);
+  });
+  
+  // Initialize display
+  updateProductDisplay();
+}
+
+// Dropdown selection function
+function selectModelFromDropdown(model) {
+  currentModel = model;
+  
+  // Update image and specifications
+  updateProductDisplay();
+}
+
+// Update product display (image and specs)
+function updateProductDisplay() {
+  const specs = productSpecs[currentModel];
+  const imagePath = `/light/Indoor Light/Mini Spot Light/${specs.image}`;
   
   // Update main image
-  mainImage.src = thumbnail.src;
-  mainImage.alt = thumbnail.alt;
+  document.getElementById('mainImage').src = imagePath;
   
-  // Update thumbnail status
-  thumbnails.forEach(thumb => thumb.classList.remove('active'));
-  thumbnail.classList.add('active');
+  // Update specifications
+  document.getElementById('spec-code').textContent = specs.code;
+  document.getElementById('spec-power').textContent = specs.power;
+  document.getElementById('spec-dimensions').textContent = specs.dimensions;
+  document.getElementById('spec-cutout').textContent = specs.cutout;
 }
 
-// Variant selection function
-function selectVariant(option) {
-  const options = document.querySelectorAll('.variant-option');
-  options.forEach(opt => opt.classList.remove('active'));
-  option.classList.add('active');
-}
-
-// Tab switching function
-function switchTab(button, tabId) {
-  const buttons = document.querySelectorAll('.tab-button');
-  const contents = document.querySelectorAll('.tab-content');
-  
-  // Remove all active states
-  buttons.forEach(btn => btn.classList.remove('active'));
-  contents.forEach(content => content.classList.remove('active'));
-  
-  // Add active state
-  button.classList.add('active');
-  document.getElementById(tabId).classList.add('active');
-}
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initializeDropdown);
 </script>
 {{ end }}
