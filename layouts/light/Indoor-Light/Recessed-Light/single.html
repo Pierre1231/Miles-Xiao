@@ -367,8 +367,8 @@ const allProductSpecs = {
       code: 'BD1010-155',
       power: '40W',
       voltage: 'AC 220V',
-      dimensions: 'Φ170×H139mm',
-      cutout: 'Φ155mm',
+      dimensions: 'Ø170×H139mm',
+      cutout: 'Ø155mm',
       angle: '15° / 24° / 36°',
       image: 'BD1010-155.png'
     },
@@ -376,8 +376,8 @@ const allProductSpecs = {
       code: 'BD1010-175',
       power: '60W',
       voltage: 'AC 220V',
-      dimensions: 'Φ190×H152mm',
-      cutout: 'Φ175mm',
+      dimensions: 'Ø190×H152mm',
+      cutout: 'Ø175mm',
       angle: '15° / 24° / 36°',
       image: 'BD1010-175.png'
     },
@@ -385,8 +385,8 @@ const allProductSpecs = {
       code: 'BD1010-205',
       power: '80W',
       voltage: 'AC 220V',
-      dimensions: 'Φ218×H168mm',
-      cutout: 'Φ205mm',
+      dimensions: 'Ø218×H168mm',
+      cutout: 'Ø205mm',
       angle: '15° / 24° / 36°',
       image: 'BD1010-205.png'
     }
@@ -399,25 +399,28 @@ const allProductSpecs = {
       dimensions: 'Ø62×H106mm',
       cutout: 'Ø55mm',
       angle: '15° / 24° / 36° / 50°',
-      image: 'BD3002-55.png'
+      image: 'BD3002-55.png',
+      hasFrameless: true
     },
     '75': {
       code: 'BD3002-75',
       power: '18W',
       voltage: 'AC 220V',
-      dimensions: 'Φ82×H116mm',
-      cutout: 'Φ75mm',
+      dimensions: 'Ø82×H116mm',
+      cutout: 'Ø75mm',
       angle: '15° / 24° / 36° / 50°',
-      image: 'BD3002-75.png'
+      image: 'BD3002-75.png',
+      hasFrameless: true
     },
     '95': {
       code: 'BD3002-95',
       power: '30W',
       voltage: 'AC 220V',
-      dimensions: 'Φ105×H146mm',
-      cutout: 'Φ95mm',
+      dimensions: 'Ø105×H146mm',
+      cutout: 'Ø95mm',
       angle: '15° / 24° / 36° / 50°',
-      image: 'BD3002-95.png'
+      image: 'BD3002-95.png',
+      hasFrameless: true
     }
   }
 };
@@ -430,6 +433,10 @@ const availableModels = Object.keys(productSpecs);
 
 // Current selection state
 let currentModel = availableModels[0];
+let currentFrame = 'with';
+
+// Check if current series supports frameless options
+const supportsFrameless = productSeries === 'BD3002';
 
 // Initialize dropdown options
 function initializeDropdown() {
@@ -438,10 +445,26 @@ function initializeDropdown() {
   
   availableModels.forEach(model => {
     const specs = productSpecs[model];
-    const option = document.createElement('option');
-    option.value = model;
-    option.textContent = specs.code;
-    select.appendChild(option);
+    
+    if (supportsFrameless && specs.hasFrameless) {
+      // With Frame option
+      const optionWith = document.createElement('option');
+      optionWith.value = `${model}-with`;
+      optionWith.textContent = `${specs.code} (With Frame)`;
+      select.appendChild(optionWith);
+      
+      // Frameless option
+      const optionWithout = document.createElement('option');
+      optionWithout.value = `${model}-without`;
+      optionWithout.textContent = `${specs.code}A (Frameless)`;
+      select.appendChild(optionWithout);
+    } else {
+      // Single option (no frame variants)
+      const option = document.createElement('option');
+      option.value = model;
+      option.textContent = specs.code;
+      select.appendChild(option);
+    }
   });
   
   // Add change event listener
@@ -454,8 +477,15 @@ function initializeDropdown() {
 }
 
 // Dropdown selection function
-function selectModelFromDropdown(model) {
-  currentModel = model;
+function selectModelFromDropdown(value) {
+  if (value.includes('-with') || value.includes('-without')) {
+    const [model, frame] = value.split('-');
+    currentModel = model;
+    currentFrame = frame;
+  } else {
+    currentModel = value;
+    currentFrame = 'with';
+  }
   
   // Update image and specifications
   updateProductDisplay();
@@ -464,13 +494,14 @@ function selectModelFromDropdown(model) {
 // Update product display (image and specs)
 function updateProductDisplay() {
   const specs = productSpecs[currentModel];
-  const imagePath = `/light/Indoor Light/Recessed Light/${specs.image}`;
+  const frameSuffix = (supportsFrameless && currentFrame === 'without') ? 'A' : '';
+  const imagePath = `/light/Indoor Light/Recessed Light/${specs.code}${frameSuffix}.png`;
   
   // Update main image
   document.getElementById('mainImage').src = imagePath;
   
   // Update specifications
-  document.getElementById('spec-code').textContent = specs.code;
+  document.getElementById('spec-code').textContent = specs.code + frameSuffix;
   document.getElementById('spec-voltage').textContent = specs.voltage;
   document.getElementById('spec-power').textContent = specs.power;
   document.getElementById('spec-dimensions').textContent = specs.dimensions;
