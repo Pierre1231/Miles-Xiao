@@ -262,7 +262,7 @@
         <div class="product-info">
           <div class="title-row">
             <h1 class="product-title">{{ .Title }} Series</h1>
-            <span class="product-type">Recessed Spot Light</span>
+            <span class="product-type">Recessed Light</span>
           </div>
 
           <!-- Model Selector -->
@@ -322,7 +322,7 @@
 // Get product series name from page title
 const productSeries = '{{ .Title }}';
 
-// Product specifications database for Recessed Spot Light series
+// Product specifications database for Recessed Light series
 const allProductSpecs = {
   'BD1007': {
     '35': {
@@ -360,6 +360,35 @@ const allProductSpecs = {
       cutout: 'Ø85mm',
       angle: '15° / 24° / 36° / 50°',
       image: 'BD1007-85.png'
+    }
+  },
+  'BD1010': {
+    '155': {
+      code: 'BD1010-155',
+      power: '40W',
+      voltage: 'AC 220V',
+      dimensions: 'Φ170×H139mm',
+      cutout: 'Φ155mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD1010-155.png'
+    },
+    '175': {
+      code: 'BD1010-175',
+      power: '60W',
+      voltage: 'AC 220V',
+      dimensions: 'Φ190×H152mm',
+      cutout: 'Φ175mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD1010-175.png'
+    },
+    '205': {
+      code: 'BD1010-205',
+      power: '80W',
+      voltage: 'AC 220V',
+      dimensions: 'Φ218×H168mm',
+      cutout: 'Φ205mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD1010-205.png'
     }
   }
 };
@@ -406,7 +435,7 @@ function selectModelFromDropdown(model) {
 // Update product display (image and specs)
 function updateProductDisplay() {
   const specs = productSpecs[currentModel];
-  const imagePath = `/light/Indoor Light/Recessed Spot Light/${specs.image}`;
+  const imagePath = `/light/Indoor Light/Recessed Light/${specs.image}`;
   
   // Update main image
   document.getElementById('mainImage').src = imagePath;
