@@ -1,0 +1,403 @@
+{{ define "main" }}
+<style>
+/* 产品详情页专用样式 */
+.product-detail-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.breadcrumb {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item {
+  color: #757575;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.breadcrumb-item:hover {
+  color: #000000;
+}
+
+.breadcrumb-separator {
+  color: #bdbdbd;
+  margin: 0 0.5rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.product-main {
+  background: white;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.product-gallery {
+  position: relative;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+}
+
+.main-image {
+  width: 100%;
+  height: 600px;
+  object-fit: contain;
+  background: white;
+  padding: 2rem;
+}
+
+.thumbnail-gallery {
+  display: none;
+}
+
+.product-info {
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0;
+}
+
+.product-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.product-type {
+  color: #757575;
+  font-size: 0.8125rem;
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.variant-selector {
+  margin-bottom: 0;
+  margin-top: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.875rem;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.variant-label {
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0;
+  display: block;
+  font-size: 0.9375rem;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.variant-select {
+  width: auto;
+  max-width: 240px;
+  padding: 0.203rem 1.75rem 0.203rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 10px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: all 0.15s ease;
+  line-height: 1.4;
+  height: calc(0.8125rem * 1.4 * 1.5);
+}
+
+.variant-select:hover {
+  background-color: #2a2a2a;
+}
+
+.variant-select:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.variant-select option {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.specs-section {
+  margin-top: 0;
+  padding-top: 0.875rem;
+}
+
+.specs-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  font-weight: 400;
+  color: #757575;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.spec-value {
+  color: #000000;
+  text-align: left;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-main {
+    margin: 0;
+  }
+  
+  .product-info {
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+  }
+  
+  .product-title {
+    font-size: 1.5rem;
+  }
+  
+  .main-image {
+    height: 400px;
+    padding: 1rem;
+  }
+  
+  .spec-row {
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+  }
+  
+  .variant-options {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+</style>
+
+<div class="product-detail-page">
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb">
+    <div class="container mx-auto px-4">
+      <nav class="flex items-center text-sm">
+        <a href="/" class="breadcrumb-item">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="/indoor-light/" class="breadcrumb-item">Indoor Light</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-item" style="color: #000000;">{{ .Title }}</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4">
+    <!-- 产品主体 -->
+    <div class="product-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+        <!-- Left Column: Product Gallery -->
+        <div class="product-gallery">
+          <img id="mainImage" src="" alt="{{ .Title }}" class="main-image">
+        </div>
+
+        <!-- Right Column: Product Information -->
+        <div class="product-info">
+          <div class="title-row">
+            <h1 class="product-title">{{ .Title }} Series</h1>
+            <span class="product-type">Surface-Mounted Spot Light</span>
+          </div>
+
+          <!-- Model Selector -->
+          <div class="variant-selector">
+            <label class="variant-label">Select Model</label>
+            <select id="modelSelect" class="variant-select">
+              <!-- Options will be populated by JavaScript -->
+            </select>
+          </div>
+
+          <!-- Specifications -->
+          <div class="specs-section">
+            <h3 class="specs-title">Specifications</h3>
+            <div class="specs-list">
+              <div class="spec-row">
+                <span class="spec-label">Product Code</span>
+                <span class="spec-value" id="spec-code">{{ .Title }}</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Voltage</span>
+                <span class="spec-value" id="spec-voltage">-</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Power</span>
+                <span class="spec-value" id="spec-power">-</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Body Dimensions</span>
+                <span class="spec-value" id="spec-dimensions">-</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Color Temperature</span>
+                <span class="spec-value">2700K / 3000K / 3500K / 4000K</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Beam Angle</span>
+                <span class="spec-value" id="spec-angle">-</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Appearance</span>
+                <span class="spec-value">Matte White / Matte Black</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Get product series name from page title
+const productSeries = '{{ .Title }}';
+
+// Product specifications database for Surface-Mounted Spot Light series
+const allProductSpecs = {
+  'BP2002': {
+    '75': {
+      code: 'BP2002-75',
+      power: '8W',
+      voltage: 'AC 220V',
+      dimensions: 'Ø70×H110mm',
+      angle: '15° / 24° / 36° / 60°',
+      image: 'BP2002-75.jpg'
+    },
+    '115': {
+      code: 'BP2002-115',
+      power: '35W',
+      voltage: 'AC 220V',
+      dimensions: 'Ø115×H160mm',
+      angle: '15° / 24° / 36° / 60°',
+      image: 'BP2002-115.jpg'
+    }
+  }
+};
+
+// Get current product specs
+const productSpecs = allProductSpecs[productSeries] || allProductSpecs['BP2002'];
+
+// Get available models for current product
+const availableModels = Object.keys(productSpecs);
+
+// Current selection state
+let currentModel = availableModels[0];
+
+// Initialize dropdown options
+function initializeDropdown() {
+  const select = document.getElementById('modelSelect');
+  select.innerHTML = ''; // Clear existing options
+  
+  availableModels.forEach(model => {
+    const specs = productSpecs[model];
+    const option = document.createElement('option');
+    option.value = model;
+    option.textContent = specs.code;
+    select.appendChild(option);
+  });
+  
+  // Add change event listener
+  select.addEventListener('change', function() {
+    selectModelFromDropdown(this.value);
+  });
+  
+  // Initialize display
+  updateProductDisplay();
+}
+
+// Dropdown selection function
+function selectModelFromDropdown(model) {
+  currentModel = model;
+  
+  // Update image and specifications
+  updateProductDisplay();
+}
+
+// Update product display (image and specs)
+function updateProductDisplay() {
+  const specs = productSpecs[currentModel];
+  const imageExtension = specs.image.split('.').pop();
+  const imagePath = `/light/Indoor Light/Surface-Mounted Spot Light/${specs.image}`;
+  
+  // Update main image
+  document.getElementById('mainImage').src = imagePath;
+  
+  // Update specifications
+  document.getElementById('spec-code').textContent = specs.code;
+  document.getElementById('spec-voltage').textContent = specs.voltage;
+  document.getElementById('spec-power').textContent = specs.power;
+  document.getElementById('spec-dimensions').textContent = specs.dimensions;
+  document.getElementById('spec-angle').textContent = specs.angle;
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initializeDropdown);
+</script>
+{{ end }}
+
