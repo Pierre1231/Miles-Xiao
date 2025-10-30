@@ -262,7 +262,7 @@
         <div class="product-info">
           <div class="title-row">
             <h1 class="product-title">{{ .Title }} Series</h1>
-            <span class="product-type">Surface-Mounted Light</span>
+            <span class="product-type">Wall Light</span>
           </div>
 
           <!-- Model Selector -->
@@ -293,15 +293,15 @@
                 <span class="spec-label">Body Dimensions</span>
                 <span class="spec-value" id="spec-dimensions">-</span>
               </div>
-              <div class="spec-row" id="spec-row-color-temp" style="display: none;">
+              <div class="spec-row" id="spec-row-color-temp">
                 <span class="spec-label">Color Temperature</span>
                 <span class="spec-value">2700K / 3000K / 3500K / 4000K</span>
               </div>
-              <div class="spec-row" id="spec-row-angle" style="display: none;">
+              <div class="spec-row" id="spec-row-angle">
                 <span class="spec-label">Beam Angle</span>
                 <span class="spec-value" id="spec-angle">-</span>
               </div>
-              <div class="spec-row" id="spec-row-appearance" style="display: none;">
+              <div class="spec-row" id="spec-row-appearance">
                 <span class="spec-label">Appearance</span>
                 <span class="spec-value">Matte White / Matte Black</span>
               </div>
@@ -322,30 +322,40 @@
 // Get product series name from page title
 const productSeries = '{{ .Title }}';
 
-// Product specifications database for Surface-Mounted Light series
+// Product specifications database for Wall Light series
 const allProductSpecs = {
-  'OD3001': {
+  'OD3002': {
     '80': {
-      code: 'OD3001-80',
-      power: '15W',
+      code: 'OD3002-80',
+      power: '10W',
       voltage: 'AC 220V',
-      dimensions: 'Ø80×H115mm',
-      image: 'OD3001-80.jpg',
-      hasAngle: false
+      dimensions: 'Ø80×120×H115mm',
+      angle: '15° / 24° / 36°',
+      image: 'OD3002-80.png'
     },
     '150': {
-      code: 'OD3001-150',
-      power: '35W',
+      code: 'OD3002-150',
+      power: '30W',
       voltage: 'AC 220V',
-      dimensions: 'Ø150×H200mm',
-      image: 'OD3001-150.jpg',
-      hasAngle: false
+      dimensions: 'Ø150×205×H180mm',
+      angle: '15° / 24° / 36°',
+      image: 'OD3002-150.png'
+    }
+  },
+  'OD3003': {
+    '80': {
+      code: 'OD3003-80',
+      power: '2*8W',
+      voltage: 'AC 220V',
+      dimensions: 'Ø80×120×H200mm',
+      angle: '15° / 24° / 36°',
+      image: 'OD3003-80.png'
     }
   }
 };
 
 // Get current product specs
-const productSpecs = allProductSpecs[productSeries] || allProductSpecs['OD3001'];
+const productSpecs = allProductSpecs[productSeries] || allProductSpecs['OD3002'];
 
 // Get available models for current product
 const availableModels = Object.keys(productSpecs);
@@ -387,7 +397,7 @@ function selectModelFromDropdown(model) {
 function updateProductDisplay() {
   const specs = productSpecs[currentModel];
   const imageExtension = specs.image.split('.').pop();
-  const imagePath = `/light/Outdoor Light/Surface-Mounted Light/${specs.image}`;
+  const imagePath = `/light/Outdoor Light/Wall Light/${specs.image}`;
   
   // Update main image
   document.getElementById('mainImage').src = imagePath;
@@ -397,18 +407,7 @@ function updateProductDisplay() {
   document.getElementById('spec-voltage').textContent = specs.voltage;
   document.getElementById('spec-power').textContent = specs.power;
   document.getElementById('spec-dimensions').textContent = specs.dimensions;
-  
-  // Show/hide angle-related specs based on series
-  if (specs.hasAngle) {
-    document.getElementById('spec-row-color-temp').style.display = '';
-    document.getElementById('spec-row-angle').style.display = '';
-    document.getElementById('spec-row-appearance').style.display = '';
-    document.getElementById('spec-angle').textContent = specs.angle;
-  } else {
-    document.getElementById('spec-row-color-temp').style.display = 'none';
-    document.getElementById('spec-row-angle').style.display = 'none';
-    document.getElementById('spec-row-appearance').style.display = 'none';
-  }
+  document.getElementById('spec-angle').textContent = specs.angle;
 }
 
 // Initialize on page load
