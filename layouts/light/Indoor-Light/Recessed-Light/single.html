@@ -444,6 +444,44 @@ const allProductSpecs = {
       image: 'BD3006-272.jpg',
       hasFrameless: true
     }
+  },
+  'BD3010': {
+    '110': {
+      code: 'BD3010-110',
+      power: '6*1W',
+      voltage: 'AC 220V',
+      dimensions: '128×30×50mm',
+      dimensionsA: '124×68×50mm',
+      cutout: '122×25mm',
+      cutoutA: '125×32mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD3010-110.jpg',
+      hasFrameless: true
+    },
+    '220': {
+      code: 'BD3010-220',
+      power: '12*1W',
+      voltage: 'AC 220V',
+      dimensions: '245×30×50mm',
+      dimensionsA: '240×68×50mm',
+      cutout: '239×25mm',
+      cutoutA: '342×32mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD3010-220.jpg',
+      hasFrameless: true
+    },
+    '330': {
+      code: 'BD3010-330',
+      power: '18*1W',
+      voltage: 'AC 220V',
+      dimensions: '360×30×50mm',
+      dimensionsA: '356×68×50mm',
+      cutout: '354×25mm',
+      cutoutA: '358×32mm',
+      angle: '15° / 24° / 36°',
+      image: 'BD3010-330.jpg',
+      hasFrameless: true
+    }
   }
 };
 
@@ -458,7 +496,7 @@ let currentModel = availableModels[0];
 let currentFrame = 'with';
 
 // Check if current series supports frameless options
-const supportsFrameless = productSeries === 'BD3002' || productSeries === 'BD3006';
+const supportsFrameless = productSeries === 'BD3002' || productSeries === 'BD3006' || productSeries === 'BD3010';
 
 // Initialize dropdown options
 function initializeDropdown() {
@@ -527,8 +565,16 @@ function updateProductDisplay() {
   document.getElementById('spec-code').textContent = specs.code + frameSuffix;
   document.getElementById('spec-voltage').textContent = specs.voltage;
   document.getElementById('spec-power').textContent = specs.power;
-  document.getElementById('spec-dimensions').textContent = specs.dimensions;
-  document.getElementById('spec-cutout').textContent = specs.cutout;
+  
+  // BD3010 series has different dimensions and cutout for frameless version
+  if (productSeries === 'BD3010' && currentFrame === 'without') {
+    document.getElementById('spec-dimensions').textContent = specs.dimensionsA || specs.dimensions;
+    document.getElementById('spec-cutout').textContent = specs.cutoutA || specs.cutout;
+  } else {
+    document.getElementById('spec-dimensions').textContent = specs.dimensions;
+    document.getElementById('spec-cutout').textContent = specs.cutout;
+  }
+  
   document.getElementById('spec-angle').textContent = specs.angle;
 }
 
