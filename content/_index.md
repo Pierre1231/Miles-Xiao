@@ -30,27 +30,6 @@ sections:
           size: cover
           position: center
           parallax: false
-
-
-  - block: stats
-    content:
-      items:
-        - statistic: "1M+"
-          description: |
-            lights sold 
-            per year
-        - statistic: "10k+"
-          description: |
-            innovative designs 
-        - statistic: "3k+"
-          description: |
-            countries reached
-    design:
-      # Section background color (CSS class)
-      css_class: "bg-gray-100 dark:bg-gray-900"
-      # Reduce spacing
-      spacing:
-        padding: ["0.25rem", 0, "0.25rem", 0]
         
   - block: cta-image-paragraph
     id: solutions
