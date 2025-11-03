@@ -19,7 +19,7 @@ sections:
         display: flex !important;
         align-items: flex-end !important;     /* 底部对齐 */
         justify-content: center !important;   /* 水平居中 */
-        padding: 0 2rem 1.25rem 2rem !important; /* 底部留白 */
+        padding: 0 2rem 1.75rem 2rem !important; /* 底部留白稍增 */
         text-align: center !important;        /* 文本居中 */
       background:
         color: "#0b0f1a"
