@@ -11,7 +11,7 @@ sections:
   - block: hero
     content:
       title: "Light up your home<br>Ignite your dream"
-      text: "We believe that light is more than illumination — it’s emotion, inspiration, and life itself. Every piece we create blends art and technology to craft an atmosphere where warmth meets elegance. From a quiet corner to a grand living space, our lights do more than brighten rooms — they awaken dreams."
+      text: ""
     design:
       css_class: "dark hero-auto"
       text_color_light: true
