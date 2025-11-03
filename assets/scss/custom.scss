@@ -322,3 +322,28 @@ section.blox-hero {
   min-height: 0 !important;
 }
 }
+
+/* ================================
+   🔤 Hero 标题字号调整（更小更精致）
+   ================================ */
+.blox-hero.hero-tech-dark h1,
+.blox-hero .hero-title {
+  font-size: 2.4rem !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  color: inherit !important; /* 与容器颜色一致（与文案同步） */
+}
+
+@media (max-width: 768px) {
+  .blox-hero.hero-tech-dark h1,
+  .blox-hero .hero-title {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* 使英雄区文案颜色与标题一致，且两端对齐 */
+.blox-hero .hero-text,
+.blox-hero p {
+  color: inherit !important;      /* 与标题一致 */
+  text-align: justify !important; /* 两端对齐 */
+}
