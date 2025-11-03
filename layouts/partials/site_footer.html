@@ -84,13 +84,19 @@
         var ratio = img.height / img.width; // h/w
         var width = section.clientWidth;
         var desired = Math.round(width * ratio);
-        section.style.height = desired + 'px';
-        bgDiv.style.height = desired + 'px';
+        // 上限：不超过 1:1（height <= width）和 90vh
+        var maxHeight = Math.min(width, Math.round(window.innerHeight * 0.9));
+        // 下限：至少 50vh，避免竖屏时过小
+        var minHeight = Math.round(window.innerHeight * 0.5);
+        var finalHeight = Math.min(Math.max(desired, minHeight), maxHeight);
+        section.style.height = finalHeight + 'px';
+        bgDiv.style.height = finalHeight + 'px';
       };
       img.src = match[1];
     }
     document.addEventListener('DOMContentLoaded', adjustHeroHeight);
     window.addEventListener('resize', adjustHeroHeight);
+    window.addEventListener('orientationchange', adjustHeroHeight);
   })();
 </script>
 
