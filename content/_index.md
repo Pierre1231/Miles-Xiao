@@ -15,6 +15,12 @@ sections:
     design:
       css_class: "dark"
       text_color_light: true
+      css_style: |
+        display: flex !important;
+        align-items: flex-start !important;   /* 顶部对齐 */
+        justify-content: center !important;   /* 水平居中 */
+        padding: 1.25rem 2rem !important;     /* 顶部留白 */
+        text-align: center !important;        /* 文本居中 */
       background:
         color: "#0b0f1a"
         image:
