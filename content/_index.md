@@ -10,7 +10,7 @@ design:
 sections:
   - block: hero
     content:
-      title: "Light up your home<br>Ignite your dream"
+      title: '<span style="font-size: 1.6rem; font-weight: 600;">Light up your home<br>Ignite your dream</span>'
       text: ""
     design:
       css_class: "dark"
