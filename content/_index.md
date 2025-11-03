@@ -10,7 +10,8 @@ design:
 sections:
   - block: hero
     content:
-      title: "SMARTER Lighting"
+      title: ""
+      text: "Light up your home, ignite your dream"
     design:
       css_class: "dark hero-auto"
       text_color_light: true
