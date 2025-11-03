@@ -328,19 +328,21 @@ section.blox-hero {
    ================================ */
 .blox-hero.hero-tech-dark h1,
 .blox-hero .hero-title {
-  font-size: 2.4rem !important;
+  font-size: 2rem !important;
   line-height: 1.15 !important;
   font-weight: 600 !important;
   letter-spacing: 0.01em !important;
   color: #ffffff !important;            /* 接近示例的白色标题 */
   text-shadow: 0 2px 12px rgba(0,0,0,0.35) !important; /* 柔和阴影增强可读性 */
   margin-bottom: 0.75rem !important;
+  text-align: center !important;        /* 标题居中 */
 }
 
 @media (max-width: 768px) {
   .blox-hero.hero-tech-dark h1,
   .blox-hero .hero-title {
-    font-size: 1.8rem !important;
+    font-size: 1.5rem !important;
+    text-align: center !important;
   }
 }
 
