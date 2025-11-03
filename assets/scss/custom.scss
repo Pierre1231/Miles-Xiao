@@ -329,9 +329,12 @@ section.blox-hero {
 .blox-hero.hero-tech-dark h1,
 .blox-hero .hero-title {
   font-size: 2.4rem !important;
-  line-height: 1.2 !important;
+  line-height: 1.15 !important;
   font-weight: 600 !important;
-  color: inherit !important; /* 与容器颜色一致（与文案同步） */
+  letter-spacing: 0.01em !important;
+  color: #ffffff !important;            /* 接近示例的白色标题 */
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35) !important; /* 柔和阴影增强可读性 */
+  margin-bottom: 0.75rem !important;
 }
 
 @media (max-width: 768px) {
@@ -344,6 +347,26 @@ section.blox-hero {
 /* 使英雄区文案颜色与标题一致，且两端对齐 */
 .blox-hero .hero-text,
 .blox-hero p {
-  color: inherit !important;      /* 与标题一致 */
-  text-align: justify !important; /* 两端对齐 */
+  color: #ffffff !important;                         /* 与标题一致的白色 */
+  text-align: justify !important;                    /* 两端对齐 */
+  opacity: 0.92 !important;                          /* 略微降低亮度，提高层次 */
+  font-size: 1.05rem !important;                     /* 接近示例的正文大小 */
+  line-height: 1.7 !important;                       /* 舒适的阅读行距 */
+  max-width: 46ch !important;                        /* 限制宽度，形成整齐文字块 */
+  text-shadow: 0 1px 10px rgba(0,0,0,0.3) !important;/* 柔和阴影增强对比 */
+}
+
+/* 文字容器靠左下，留出呼吸空间并对齐到示例感受 */
+.hero-left-bottom .hero-content {
+  padding-bottom: 2rem !important;
+}
+
+/* 底部轻微渐变，保证深浅背景下的可读性 */
+section.blox-hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 35%;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0));
 }
