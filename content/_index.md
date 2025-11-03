@@ -12,22 +12,22 @@ sections:
     content:
       title: "SMARTER Lighting"
     design:
-      css_class: "dark"
+      css_class: "dark hero-auto"
       text_color_light: true
       css_style: |
         display: flex !important;
         align-items: flex-end !important;
         justify-content: flex-start !important;
-        min-height: 60vh;
         padding: 2rem 2rem !important;
       background:
         color: "#0b0f1a"
         image:
-          filename: "hero_pic2.png"
+          filename: "hero_pic2.jpg"
           filters:
             brightness: 0.55
             contrast: 1.05
-          size: cover
+          size: contain
+          repeat: no-repeat
           position: center
           parallax: false
         

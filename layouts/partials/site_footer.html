@@ -69,3 +69,27 @@
   </div>
 </footer>
 
+<script>
+  (function() {
+    function adjustHeroHeight() {
+      var hero = document.querySelector('.hero-auto');
+      if (!hero) return;
+      var bg = getComputedStyle(hero).backgroundImage;
+      if (!bg || bg === 'none') return;
+      var match = bg.match(/url\(["']?(.*?)["']?\)/);
+      if (!match || !match[1]) return;
+      var img = new Image();
+      img.onload = function() {
+        var ratio = img.height / img.width; // h/w
+        var width = hero.clientWidth;
+        var desired = Math.round(width * ratio);
+        hero.style.height = desired + 'px';
+      };
+      img.src = match[1];
+    }
+
+    document.addEventListener('DOMContentLoaded', adjustHeroHeight);
+    window.addEventListener('resize', adjustHeroHeight);
+  })();
+</script>
+
