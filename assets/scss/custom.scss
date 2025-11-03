@@ -307,4 +307,18 @@
     padding: 0.3rem 0.4rem !important;
   }
 }
+
+/* ================================
+   🖼 首页英雄区背景保持原始比例
+   ================================ */
+.blox-hero .home-section-bg.bg-image {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+/* 允许脚本动态控制高度 */
+section.blox-hero {
+  min-height: 0 !important;
+}
 }
