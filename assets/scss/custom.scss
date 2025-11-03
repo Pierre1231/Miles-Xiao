@@ -336,6 +336,7 @@ section.blox-hero {
   text-shadow: 0 2px 12px rgba(0,0,0,0.35) !important; /* 柔和阴影增强可读性 */
   margin-bottom: 0.75rem !important;
   text-align: center !important;        /* 标题居中 */
+  white-space: nowrap !important;       /* 强制一行显示 */
 }
 
 @media (max-width: 768px) {
@@ -344,6 +345,21 @@ section.blox-hero {
     font-size: 1.5rem !important;
     text-align: center !important;
   }
+}
+
+/* 响应式：通过 CSS 变量控制标题字号，配合内联的 var(--hero-title-size) 使用 */
+section.blox-hero {
+  --hero-title-size: 1.6rem;
+}
+
+@media (max-width: 992px) {
+  section.blox-hero { --hero-title-size: 1.45rem; }
+}
+@media (max-width: 768px) {
+  section.blox-hero { --hero-title-size: 1.3rem; }
+}
+@media (max-width: 480px) {
+  section.blox-hero { --hero-title-size: 1.15rem; }
 }
 
 /* 使英雄区文案颜色与标题一致，且两端对齐 */

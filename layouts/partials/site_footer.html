@@ -71,9 +71,35 @@
 
 <script>
   (function() {
-    function adjustHeroHeight() {
-      var section = document.querySelector('section.blox-hero');
-      var bgDiv = document.querySelector('section.blox-hero .home-section-bg.bg-image');
+    var section, bgDiv, ratio = null, rafId = null, lastWidth = 0, debTimer = null;
+
+    function computeAndApply() {
+      rafId = null;
+      if (!section || !bgDiv || ratio == null) return;
+      var width = section.clientWidth;
+      if (Math.abs(width - lastWidth) < 1) return; // 宽度未变，跳过
+      lastWidth = width;
+      var desired = Math.round(width * ratio);
+      var maxHeight = Math.min(width, Math.round(window.innerHeight * 0.9)); // 不超过1:1与90vh
+      var minHeight = Math.round(window.innerHeight * 0.5); // 竖屏下限50vh
+      var finalHeight = Math.min(Math.max(desired, minHeight), maxHeight);
+      section.style.height = finalHeight + 'px';
+      bgDiv.style.height = finalHeight + 'px';
+    }
+
+    function scheduleCompute() {
+      if (rafId != null) return;
+      rafId = requestAnimationFrame(computeAndApply);
+    }
+
+    function debouncedSchedule() {
+      clearTimeout(debTimer);
+      debTimer = setTimeout(scheduleCompute, 120);
+    }
+
+    function init() {
+      section = document.querySelector('section.blox-hero');
+      bgDiv = document.querySelector('section.blox-hero .home-section-bg.bg-image');
       if (!section || !bgDiv) return;
       var bg = getComputedStyle(bgDiv).backgroundImage;
       if (!bg || bg === 'none') return;
@@ -81,22 +107,26 @@
       if (!match || !match[1]) return;
       var img = new Image();
       img.onload = function() {
-        var ratio = img.height / img.width; // h/w
-        var width = section.clientWidth;
-        var desired = Math.round(width * ratio);
-        // 上限：不超过 1:1（height <= width）和 90vh
-        var maxHeight = Math.min(width, Math.round(window.innerHeight * 0.9));
-        // 下限：至少 50vh，避免竖屏时过小
-        var minHeight = Math.round(window.innerHeight * 0.5);
-        var finalHeight = Math.min(Math.max(desired, minHeight), maxHeight);
-        section.style.height = finalHeight + 'px';
-        bgDiv.style.height = finalHeight + 'px';
+        ratio = img.height / img.width; // 高宽比
+        scheduleCompute();
       };
       img.src = match[1];
+
+      // 使用 ResizeObserver 监听宽度变化（避免滚动时内高抖动触发多次）
+      if ('ResizeObserver' in window) {
+        var ro = new ResizeObserver(function(entries){ debouncedSchedule(); });
+        ro.observe(section);
+      }
+
+      // 浏览器窗口变化：节流处理
+      window.addEventListener('resize', debouncedSchedule, { passive: true });
+      window.addEventListener('orientationchange', debouncedSchedule, { passive: true });
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', debouncedSchedule, { passive: true });
+      }
     }
-    document.addEventListener('DOMContentLoaded', adjustHeroHeight);
-    window.addEventListener('resize', adjustHeroHeight);
-    window.addEventListener('orientationchange', adjustHeroHeight);
+
+    document.addEventListener('DOMContentLoaded', init);
   })();
 </script>
 
