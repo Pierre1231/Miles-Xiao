@@ -10,7 +10,7 @@ design:
 sections:
   - block: hero
     content:
-      title: '<span style="font-size: var(--hero-title-size, 1.6rem); font-weight: 600; white-space: nowrap; display: inline-block;">Light up your home · Ignite your dream</span>'
+      title: '<span style="font-size: clamp(1rem, 5.5vw, 1.6rem); font-weight: 600; white-space: nowrap; display: inline-block; max-width: 100%;">Light up your home · Ignite your dream</span>'
       text: ""
     design:
       css_class: "dark"
