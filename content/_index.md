@@ -10,7 +10,7 @@ design:
 sections:
   - block: hero
     content:
-      title: '<span style="font-size: clamp(1rem, 5.5vw, 1.6rem); font-weight: 600; white-space: nowrap; display: inline-block; max-width: 100%;">Solo Lighting Solution</span>'
+      title: '<span style="font-size: clamp(1rem, 5.5vw, 1.6rem); font-weight: 600; white-space: nowrap; display: inline-block; max-width: 100%;">Premium Lighting Solutions</span>'
       text: ""
     design:
       css_class: "dark"
