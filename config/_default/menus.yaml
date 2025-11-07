@@ -12,3 +12,9 @@ main:
   - name: Outdoor Light
     url: outdoor-light/
     weight: 40
+  - name: News
+    url: news/
+    weight: 50
+  - name: Download
+    url: download/
+    weight: 60
