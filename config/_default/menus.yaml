@@ -6,12 +6,9 @@ main:
   - name: Home
     url: /#top
     weight: 20
-  - name: Product
-    weight: 30
-    hasChildren: true
-  - parent: Product
-    name: Indoor Light
+  - name: Indoor Light
     url: indoor-light/
-  - parent: Product
-    name: Outdoor Light
+    weight: 30
+  - name: Outdoor Light
     url: outdoor-light/
+    weight: 40
