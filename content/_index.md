@@ -55,4 +55,19 @@ sections:
       spacing:
         padding: ["0rem", 0, "0rem", 0]
 
+  - block: markdown
+    content:
+      title: "Quality Guarantee"
+      text: |
+        ## 5-Year Warranty
+        
+        We stand behind the quality of our products with a comprehensive **5-year warranty** on all lighting solutions. This commitment reflects our confidence in the durability, craftsmanship, and reliability of every product we create.
+        
+        Your peace of mind is our priority.
+    design:
+      columns: "1"
+      css_class: "text-center bg-white dark:bg-gray-800"
+      spacing:
+        padding: ["3rem", "2rem", "3rem", "2rem"]
+
 ---
