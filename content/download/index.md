@@ -19,5 +19,4 @@ sections:
     design:
       columns: "1"
       css_class: "text-center"
-      spacing: "3rem"
 ---
