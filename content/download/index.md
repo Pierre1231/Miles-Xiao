@@ -15,7 +15,8 @@ sections:
         
         Download product catalogs, specifications, and other resources.
         
-        *Content coming soon...*
+        ## 可下载文件
+        - [Smarter Lighting Catalog（PDF）](/download/smarter%20lighting.pdf)
     design:
       columns: "1"
       css_class: "text-center"
