@@ -1,0 +1,4 @@
+# Static site: no build step, the repo root is the publish directory.
+[build]
+  publish = "."
+  command = "echo 'static site, no build required'"
