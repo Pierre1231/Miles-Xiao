@@ -215,6 +215,10 @@ a:hover { text-decoration: underline; }
   align-items: flex-end;
   justify-content: center;
   padding: 0 2rem 1.75rem;
+  /* No-JS fallback matching the hero image ratio (3016/6000); the inline
+     script below refines this once the image has loaded. */
+  height: min(50.27vw, 90vh);
+  min-height: 50vh;
 }
 
 /* News hero: content centered */
@@ -230,11 +234,13 @@ a:hover { text-decoration: underline; }
   background-color: #0b0f1a;
 }
 
-/* Home hero background image, filters baked on live via Hugo processing */
+/* Home hero background image, filters baked on live via Hugo processing.
+   cover: no letterbox bars at viewport ratios unlike the image's; the JS
+   height logic keeps the full image visible in the common range anyway. */
 .hero-bg-image {
   position: absolute;
   inset: 0;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   filter: brightness(0.55) contrast(1.05);
