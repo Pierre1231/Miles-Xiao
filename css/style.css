@@ -438,11 +438,21 @@ a:hover { text-decoration: underline; }
   gap: 1rem;
 }
 
+/* On desktop the sidebar sticks below the fixed navbar while the gallery
+   scrolls; on mobile it stays in normal flow (content stacks vertically). */
 .filter-sidebar {
-  position: sticky;
-  top: 6rem;
   background: #ffffff;
   padding: 0 2rem 0 0;
+}
+
+@media (min-width: 1024px) {
+  .filter-sidebar {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+  }
 }
 
 .filter-header {
@@ -488,7 +498,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* Gallery (ported from shortcodes/gallery.html) */
-.gallery-section { margin-bottom: 3rem; }
+.gallery-section { margin-bottom: 3rem; scroll-margin-top: 6rem; }
 
 .gallery-title {
   font-size: 1.5rem;
